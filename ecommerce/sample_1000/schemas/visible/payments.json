@@ -1,0 +1,88 @@
+{
+ "table": "payments",
+ "hidden": false,
+ "description": "One row per Razorpay payment attempt (final status). COD orders have no Razorpay payment.",
+ "columns": [
+  {
+   "name": "payment_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "checkout_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "order_id",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": "Null when the checkout never became an order"
+  },
+  {
+   "name": "unit_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "status",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "created",
+    "authorised",
+    "captured",
+    "failed",
+    "refunded"
+   ],
+   "description": ""
+  },
+  {
+   "name": "method",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "upi",
+    "card",
+    "netbanking",
+    "wallet"
+   ],
+   "description": ""
+  },
+  {
+   "name": "amount_band",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "created_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "error_code",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "attempt_no",
+   "type": "int",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  }
+ ]
+}

@@ -1,0 +1,175 @@
+{
+ "table": "person_truth",
+ "hidden": true,
+ "description": "HIDDEN. True type, latent attributes and the planted true effect of each action.",
+ "columns": [
+  {
+   "name": "unit_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "hidden_type",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "type_changes",
+   "type": "json",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "order_gap_days_mean",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "order_gap_cv",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "sessions_per_month",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "price_sensitivity",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "cod_preference",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "return_propensity",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "refusal_propensity",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "serial_returner",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "reacts_badly",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "baseline_p7",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "would_act_anyway",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "never_acts",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "persuadable_actions",
+   "type": "json",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "uplift_reminder",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "uplift_discount",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "uplift_free_shipping",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "uplift_bundle",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "uplift_agent_call",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "shared_phone_with",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "anon_ids",
+   "type": "json",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "geo_tier",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  }
+ ]
+}

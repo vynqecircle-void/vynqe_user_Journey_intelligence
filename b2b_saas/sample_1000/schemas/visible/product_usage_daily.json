@@ -1,0 +1,73 @@
+{
+ "table": "product_usage_daily",
+ "hidden": false,
+ "description": "Account x person x feature x day, active days only. Logins are rows with feature=login.",
+ "columns": [
+  {
+   "name": "account_id",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": "Null for unmatched users"
+  },
+  {
+   "name": "person_key",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "feature",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "day",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "num_events",
+   "type": "int",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "num_minutes",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "session_count",
+   "type": "int",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "source_system",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "amplitude",
+    "pendo"
+   ],
+   "description": ""
+  },
+  {
+   "name": "ingested_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  }
+ ]
+}

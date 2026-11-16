@@ -1,0 +1,66 @@
+{
+ "table": "order_truth",
+ "hidden": true,
+ "description": "HIDDEN. Exact amounts and margins (visible tables carry bands only).",
+ "columns": [
+  {
+   "name": "order_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "unit_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "kind",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "natural",
+    "incremental"
+   ],
+   "description": ""
+  },
+  {
+   "name": "cause_decision_id",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "exact_amount_gross",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "exact_amount_net",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "margin_pct",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "margin_amount",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  }
+ ]
+}

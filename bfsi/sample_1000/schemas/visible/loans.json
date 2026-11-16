@@ -1,0 +1,98 @@
+{
+ "table": "loans",
+ "hidden": false,
+ "description": "One row per disbursed loan (core banking view).",
+ "columns": [
+  {
+   "name": "loan_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "application_ref",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "unit_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "account_status",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "active",
+    "dormant",
+    "closed",
+    "defaulted"
+   ],
+   "description": "'defaulted' is a coarse lender flag (90+ days past due under the lender's rule): proposed extension, no days or balances"
+  },
+  {
+   "name": "opened_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "closed_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "closure_type",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "matured",
+    "prepaid",
+    "foreclosed"
+   ],
+   "description": ""
+  },
+  {
+   "name": "defaulted_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": "When the lender flag was set (a few days after 90 DPD). Never available before then"
+  },
+  {
+   "name": "tenure_band",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": "Flagged: workbook marks tenure Skip; banded months"
+  },
+  {
+   "name": "disbursed_amount_band",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "lender_band_latest",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "band_1",
+    "band_2",
+    "band_3",
+    "band_4"
+   ],
+   "description": "EXTRACT-TIME snapshot of the lender band (leakage trap)"
+  }
+ ]
+}

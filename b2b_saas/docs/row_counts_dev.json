@@ -1,0 +1,25 @@
+{
+ "n_accounts": 15250,
+ "n_base": 250,
+ "n_new": 15000,
+ "seed": 7,
+ "preset": "dev",
+ "rows": {
+  "accounts": 16364,
+  "contacts": 42850,
+  "events": 324287,
+  "opportunities": 1484,
+  "product_usage_daily": 2874310,
+  "subscriptions": 1172,
+  "invoices": 3380,
+  "actions": 18487,
+  "state_history": 17087,
+  "campaigns": 9164,
+  "account_truth": 15250,
+  "contact_truth": 42850,
+  "opportunity_truth": 1234,
+  "state_truth": 16970,
+  "noise_log": 73962
+ },
+ "seconds": 29.5
+}

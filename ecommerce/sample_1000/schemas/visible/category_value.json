@@ -1,0 +1,54 @@
+{
+ "table": "category_value",
+ "hidden": false,
+ "description": "Client-supplied category economics (placeholder defaults, grade D).",
+ "columns": [
+  {
+   "name": "category",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "apparel_women",
+    "apparel_men",
+    "footwear",
+    "accessories",
+    "beauty",
+    "home",
+    "electronics_acc"
+   ],
+   "description": ""
+  },
+  {
+   "name": "month",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "margin_band",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "return_cost_band",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "stock_status",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "in_stock",
+    "low",
+    "out_of_stock"
+   ],
+   "description": ""
+  }
+ ]
+}

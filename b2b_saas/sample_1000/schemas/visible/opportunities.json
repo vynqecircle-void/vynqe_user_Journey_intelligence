@@ -1,0 +1,176 @@
+{
+ "table": "opportunities",
+ "hidden": false,
+ "description": "One row per deal: new, expansion, renewal and win-back. E-sign envelope merged in. Stage history is in events.",
+ "columns": [
+  {
+   "name": "opp_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "account_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "type",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "new",
+    "expansion",
+    "renewal",
+    "win_back"
+   ],
+   "description": ""
+  },
+  {
+   "name": "stage",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "discovery",
+    "evaluation",
+    "proposal",
+    "negotiation",
+    "closed_won",
+    "closed_lost"
+   ],
+   "description": "EXTRACT-TIME snapshot; history in events"
+  },
+  {
+   "name": "amount_band",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "<5k",
+    "5-10k",
+    "10-25k",
+    "25-50k",
+    "50-100k",
+    "100-250k",
+    "250k+"
+   ],
+   "description": ""
+  },
+  {
+   "name": "discount_band",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "none",
+    "1-10",
+    "10-20",
+    "20+"
+   ],
+   "description": ""
+  },
+  {
+   "name": "created_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "close_date",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": "Expected close while open, actual when closed"
+  },
+  {
+   "name": "closed_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": "EXTRACT-TIME snapshot"
+  },
+  {
+   "name": "is_won",
+   "type": "bool",
+   "nullable": true,
+   "allowed": null,
+   "description": "EXTRACT-TIME snapshot"
+  },
+  {
+   "name": "loss_category",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "price",
+    "competitor",
+    "no_decision",
+    "timing",
+    "product_gap",
+    "champion_left"
+   ],
+   "description": ""
+  },
+  {
+   "name": "competitor_flag",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "incumbent_vendor_band",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "known",
+    "unknown"
+   ],
+   "description": ""
+  },
+  {
+   "name": "incumbent_contract_end",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "rep_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "legal_review",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "esign_status",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "created",
+    "sent",
+    "delivered",
+    "signed",
+    "completed",
+    "declined",
+    "voided"
+   ],
+   "description": "DocuSign envelope status (EXTRACT-TIME)"
+  },
+  {
+   "name": "esign_changed_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  }
+ ]
+}

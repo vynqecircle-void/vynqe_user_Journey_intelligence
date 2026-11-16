@@ -1,0 +1,45 @@
+{
+ "table": "state_truth",
+ "hidden": true,
+ "description": "HIDDEN. Same state rules run on the clean, un-noised, fully linked event stream.",
+ "columns": [
+  {
+   "name": "unit_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "state",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "Lead",
+    "Opportunity",
+    "Competitor displacement",
+    "Onboarding",
+    "Active",
+    "Expansion",
+    "At-risk renewal",
+    "Churned",
+    "Lost"
+   ],
+   "description": ""
+  },
+  {
+   "name": "entered_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "exited_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  }
+ ]
+}

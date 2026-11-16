@@ -1,0 +1,165 @@
+{
+ "table": "subscriptions",
+ "hidden": false,
+ "description": "One row per plan period (amendments create a new version; Zuora-style Expired marks an old version). A term that ends with no successor is a lapse.",
+ "columns": [
+  {
+   "name": "subscription_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "account_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "version",
+   "type": "int",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "plan",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "starter",
+    "team",
+    "business",
+    "enterprise"
+   ],
+   "description": ""
+  },
+  {
+   "name": "seats_bought",
+   "type": "int",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "seats_active_band",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "<25%",
+    "25-50%",
+    "50-75%",
+    "75%+"
+   ],
+   "description": "EXTRACT-TIME snapshot (leakage trap)"
+  },
+  {
+   "name": "billing_interval",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "monthly",
+    "annual"
+   ],
+   "description": ""
+  },
+  {
+   "name": "term_months",
+   "type": "int",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "start_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "end_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "auto_renew_flag",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "cancel_requested",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "status",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "trialing",
+    "active",
+    "past_due",
+    "paused",
+    "pending",
+    "cancelled",
+    "expired"
+   ],
+   "description": "EXTRACT-TIME snapshot"
+  },
+  {
+   "name": "status_changed_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "pause_collection",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "collection_method",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "charge_automatically",
+    "send_invoice"
+   ],
+   "description": ""
+  },
+  {
+   "name": "trial_end",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "mrr_band",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "<5k",
+    "5-10k",
+    "10-25k",
+    "25-50k",
+    "50-100k",
+    "100-250k",
+    "250k+"
+   ],
+   "description": ""
+  }
+ ]
+}

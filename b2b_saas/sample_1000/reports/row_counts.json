@@ -1,0 +1,25 @@
+{
+ "n_accounts": 1020,
+ "n_base": 20,
+ "n_new": 1000,
+ "seed": 42,
+ "preset": "tiny",
+ "rows": {
+  "accounts": 1107,
+  "contacts": 3085,
+  "events": 23413,
+  "opportunities": 120,
+  "product_usage_daily": 290174,
+  "subscriptions": 94,
+  "invoices": 323,
+  "actions": 1296,
+  "state_history": 1147,
+  "campaigns": 9164,
+  "account_truth": 1020,
+  "contact_truth": 3085,
+  "opportunity_truth": 100,
+  "state_truth": 1144,
+  "noise_log": 5176
+ },
+ "seconds": 3.4
+}

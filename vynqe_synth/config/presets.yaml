@@ -1,0 +1,11 @@
+tiny: {n_customers: 1000, chunk_size: 500}
+dev: {n_customers: 10000, chunk_size: 1000}
+full: {n_customers: 100000, chunk_size: 2000}
+bfsi:
+  tiny: {n_customers: 2000, chunk_size: 1000}
+  dev: {n_customers: 100000, chunk_size: 5000}
+  full: {n_customers: 400000, chunk_size: 10000}
+b2b_saas:
+  tiny: {n_base: 50, n_new: 2500, chunk_size: 500}
+  dev: {n_base: 250, n_new: 15000, chunk_size: 2500}
+  full: {n_base: 1200, n_new: 66000, chunk_size: 5000}

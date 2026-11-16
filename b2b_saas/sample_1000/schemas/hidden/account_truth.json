@@ -1,0 +1,203 @@
+{
+ "table": "account_truth",
+ "hidden": true,
+ "description": "HIDDEN. True types, drivers, exact ACV, planted effect of each action and the true outcomes.",
+ "columns": [
+  {
+   "name": "unit_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "kind",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "base",
+    "new"
+   ],
+   "description": ""
+  },
+  {
+   "name": "prospect_type",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "customer_type",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "fit_score",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "intent_stage",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "incumbent_lock_in",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "champion_exit_hazard",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "usage_decay_rate",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "decay_mode",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "none",
+    "gradual",
+    "sudden"
+   ],
+   "description": ""
+  },
+  {
+   "name": "budget_cycle_month",
+   "type": "int",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "competitor_win_prob",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "expansion_headroom",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "acv",
+   "type": "float",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "seats_true",
+   "type": "int",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "integration_connected",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "reacts_badly",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "uplift_prospect",
+   "type": "json",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "uplift_customer",
+   "type": "json",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "p_win_base",
+   "type": "float",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "will_win",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "churn_kind",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": "cancelled, silent_lapse, involuntary or null"
+  },
+  {
+   "name": "churn_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "renewal_outcomes",
+   "type": "json",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "is_test_account",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "duplicate_of",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "champion_left_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  }
+ ]
+}

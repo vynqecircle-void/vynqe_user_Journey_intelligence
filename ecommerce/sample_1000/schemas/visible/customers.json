@@ -1,0 +1,209 @@
+{
+ "table": "customers",
+ "hidden": false,
+ "description": "One row per customer; also holds the identity map (one ref per system) and holdout assignment.",
+ "columns": [
+  {
+   "name": "unit_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "person_key",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": "HMAC-SHA-256 of normalised phone; not unique when a phone is shared"
+  },
+  {
+   "name": "created_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "first_order_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "orders_count",
+   "type": "int",
+   "nullable": false,
+   "allowed": null,
+   "description": "EXTRACT-TIME snapshot (leakage trap): use events for point-in-time"
+  },
+  {
+   "name": "spend_band",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": "EXTRACT-TIME snapshot"
+  },
+  {
+   "name": "device_class",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "android",
+    "ios",
+    "web_mobile",
+    "web_desktop"
+   ],
+   "description": ""
+  },
+  {
+   "name": "acquisition_channel",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "campaign_id",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "email_consent",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "granted",
+    "denied",
+    "unknown",
+    "withdrawn"
+   ],
+   "description": "EXTRACT-TIME snapshot; history in consent_change events"
+  },
+  {
+   "name": "sms_consent",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "granted",
+    "denied",
+    "unknown",
+    "withdrawn"
+   ],
+   "description": ""
+  },
+  {
+   "name": "whatsapp_consent",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "granted",
+    "denied",
+    "unknown",
+    "withdrawn"
+   ],
+   "description": ""
+  },
+  {
+   "name": "geo_tier",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "metro",
+    "tier1",
+    "tier2",
+    "tier3",
+    "rural"
+   ],
+   "description": "Flagged extension: not in workbook"
+  },
+  {
+   "name": "regime_first_seen",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "legacy_targeting",
+    "randomised_holdout"
+   ],
+   "description": ""
+  },
+  {
+   "name": "holdout_group",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "control",
+    "treated"
+   ],
+   "description": ""
+  },
+  {
+   "name": "holdout_assigned_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "holdout_share",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "holdout_strategy",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "random_hash"
+   ],
+   "description": ""
+  },
+  {
+   "name": "shopify_customer_ref",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "klaviyo_profile_ref",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "razorpay_ref",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "zendesk_requester_ref",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "ga4_user_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "email_key",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": "HMAC of lowercased email"
+  }
+ ]
+}

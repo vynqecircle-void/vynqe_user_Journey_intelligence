@@ -1,0 +1,21 @@
+{
+ "n_customers": 1000,
+ "seed": 42,
+ "preset": "tiny",
+ "rows": {
+  "customers": 1000,
+  "events": 245166,
+  "orders": 2448,
+  "payments": 1083,
+  "tickets": 386,
+  "actions": 19916,
+  "state_history": 5209,
+  "campaigns": 6584,
+  "category_value": 168,
+  "person_truth": 1000,
+  "order_truth": 2448,
+  "state_truth": 5262,
+  "noise_log": 20155
+ },
+ "seconds": 5.8
+}

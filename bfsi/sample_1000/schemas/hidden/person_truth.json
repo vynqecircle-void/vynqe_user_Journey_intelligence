@@ -1,0 +1,199 @@
+{
+ "table": "person_truth",
+ "hidden": true,
+ "description": "HIDDEN. True type, income and employment, true risk and planted true effect of each action.",
+ "columns": [
+  {
+   "name": "unit_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "hidden_type",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "type_changes",
+   "type": "json",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "employment_type",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "salaried",
+    "self_employed"
+   ],
+   "description": ""
+  },
+  {
+   "name": "age",
+   "type": "int",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "income_annual",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "loan_to_income",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "true_risk_z",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "lender_band_true_noise",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "kyc_friction",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "doc_quality",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "urgency",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "shopping_around",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "mandate_failure_propensity",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "prepay_propensity",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "topup_propensity",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "uplift_nudge",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "uplift_agent_call",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "uplift_fee_waiver",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "uplift_offer",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "uplift_emi_nudge",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "reacts_badly",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "fraud_flag",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "stacking",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "shared_phone_with",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "anon_ids",
+   "type": "json",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "geo_tier",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  }
+ ]
+}

@@ -1,0 +1,166 @@
+{
+ "table": "events",
+ "hidden": false,
+ "description": "Canonical event stream. Leads, stage history, consent history, message status, decisions, risk-band updates and outcomes live here.",
+ "columns": [
+  {
+   "name": "event_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "source_event_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": "object:id:status (brief rule 4)"
+  },
+  {
+   "name": "event_type",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "identify",
+    "consent_change",
+    "link_click",
+    "qr_scan",
+    "quiz_started",
+    "quiz_step_answered",
+    "quiz_abandoned",
+    "quiz_completed",
+    "game_started",
+    "game_retry",
+    "game_quit",
+    "game_completed",
+    "page_view",
+    "decision_made",
+    "webhook_status",
+    "message_status",
+    "record_created",
+    "record_status_changed",
+    "outcome_confirmed"
+   ],
+   "description": ""
+  },
+  {
+   "name": "source_system",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "trackflow",
+    "salesforce",
+    "loan_origination",
+    "kyc",
+    "account_aggregator",
+    "docusign",
+    "razorpay",
+    "core_banking",
+    "service_collections",
+    "contact_centre",
+    "klaviyo",
+    "whatsapp",
+    "warehouse",
+    "decision_service",
+    "outcome_checker",
+    "google_ads",
+    "meta_ads"
+   ],
+   "description": ""
+  },
+  {
+   "name": "person_key",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "anonymous_id",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "unit_id",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "occurred_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "ingested_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "channel",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "web",
+    "app",
+    "email",
+    "sms",
+    "whatsapp",
+    "push",
+    "in_app",
+    "call",
+    "store",
+    "kiosk",
+    "paid_search",
+    "paid_social",
+    "affiliate",
+    "partner",
+    "referral",
+    "organic",
+    "branch"
+   ],
+   "description": ""
+  },
+  {
+   "name": "campaign_id",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "placement_id",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "consent_status",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "granted",
+    "denied",
+    "unknown",
+    "withdrawn"
+   ],
+   "description": ""
+  },
+  {
+   "name": "properties",
+   "type": "json",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  }
+ ]
+}

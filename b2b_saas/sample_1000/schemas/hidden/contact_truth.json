@@ -1,0 +1,56 @@
+{
+ "table": "contact_truth",
+ "hidden": true,
+ "description": "HIDDEN. Which account a person really belongs to.",
+ "columns": [
+  {
+   "name": "person_key",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "contact_ref",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "true_account",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "visible_account",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "is_champion",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "wrongly_matched",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "also_in_account",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  }
+ ]
+}

@@ -1,0 +1,210 @@
+{
+ "table": "accounts",
+ "hidden": false,
+ "description": "One row per account: bands only. Also the identity map (one ref per system) and the whole-account holdout assignment.",
+ "columns": [
+  {
+   "name": "account_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "segment",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "SMB",
+    "MM",
+    "ENT"
+   ],
+   "description": ""
+  },
+  {
+   "name": "industry_band",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "employee_band",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "region",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "north_america",
+    "emea",
+    "apac",
+    "india"
+   ],
+   "description": ""
+  },
+  {
+   "name": "source",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "inbound",
+    "outbound",
+    "partner",
+    "event",
+    "referral",
+    "competitor_displacement"
+   ],
+   "description": ""
+  },
+  {
+   "name": "created_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "first_won_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "status",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "prospect",
+    "customer",
+    "churned",
+    "lost"
+   ],
+   "description": "EXTRACT-TIME snapshot (leakage trap)"
+  },
+  {
+   "name": "current_plan",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "starter",
+    "team",
+    "business",
+    "enterprise"
+   ],
+   "description": "EXTRACT-TIME snapshot"
+  },
+  {
+   "name": "arr_band",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "<5k",
+    "5-10k",
+    "10-25k",
+    "25-50k",
+    "50-100k",
+    "100-250k",
+    "250k+"
+   ],
+   "description": "EXTRACT-TIME snapshot"
+  },
+  {
+   "name": "renewal_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": "EXTRACT-TIME snapshot of the current term end"
+  },
+  {
+   "name": "strategic_flag",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "named_csm",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "regime_first_seen",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "legacy_targeting",
+    "randomised_holdout"
+   ],
+   "description": ""
+  },
+  {
+   "name": "holdout_group",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "control",
+    "treated"
+   ],
+   "description": ""
+  },
+  {
+   "name": "holdout_assigned_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "holdout_share",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "holdout_strategy",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "random_hash"
+   ],
+   "description": ""
+  },
+  {
+   "name": "crm_ref",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "billing_ref",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "cs_ref",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "domain_key",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": "HMAC of the company domain; no company names"
+  }
+ ]
+}

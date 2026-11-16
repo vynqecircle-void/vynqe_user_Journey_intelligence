@@ -1,0 +1,215 @@
+# B2B SaaS pack settings. SYNTHETIC DATA. Every leaf: value, grade, q (B2B 79-answer file), note.
+# Grades: A official, B benchmark (vendor/agency/secondary, low confidence), C modelling assumption, D client-only (placeholder).
+run:
+  start_date: {value: "2024-05-01", grade: C, q: "1", note: "30-month window ending 31 Oct 2026 (answers: 24-36 months; brief default 24)"}
+  n_days: {value: 914, grade: C, q: "1", note: "30 months"}
+  regime2_day: {value: 457, grade: C, q: "66", note: "Months 1-15 legacy targeting; months 16-30 randomised policy"}
+  holdout_share: {value: 0.08, grade: C, q: "70", note: "Q70: 5 to 10% of whole accounts, optional nudges only"}
+  holdout_salt: {value: "vynqe-b2b-holdout-salt-v1", grade: C, q: "70", note: "Salted hash (brief rule 15)"}
+  hash_secret: {value: "dummy-b2b-secret-not-real", grade: C, q: "-", note: "Dummy HMAC secret (brief rule 8)"}
+population:
+  segment_mix: {value: {SMB: 0.60, MM: 0.30, ENT: 0.10}, grade: B, q: "2", note: "Account share by ACV; revenue share inverted"}
+  acv_median_usd: {value: {SMB: 9000, MM: 48000, ENT: 180000}, grade: C, q: "4", note: "Lognormal; cut-offs SMB<25K, MM 25-100K, ENT>100K. Hidden exact; visible only as bands"}
+  acv_sigma: {value: {SMB: 0.45, MM: 0.45, ENT: 0.55}, grade: C, q: "4", note: ""}
+  acv_band_edges: {value: [0, 5000, 10000, 25000, 50000, 100000, 250000], grade: C, q: "4", note: "USD band edges (brief rule 7)"}
+  seats_median: {value: {SMB: 9, MM: 40, ENT: 150}, grade: C, q: "1", note: "Median users per account 10-25 overall, P90 about 100"}
+  seats_sigma: {value: 0.6, grade: C, q: "1", note: ""}
+  seats_clip: {value: {SMB: [2, 40], MM: [10, 150], ENT: [50, 600]}, grade: C, q: "1", note: ""}
+  tracked_users_cap: {value: 40, grade: C, q: "1", note: "Named users simulated per account in usage tables (large accounts are sampled; seats_active_band keeps the full picture)"}
+  industry_bands: {value: ["software_it", "financial_services", "healthcare", "manufacturing_retail", "other_services"], grade: D, q: "2", note: "Company data"}
+  industry_probs: {value: [0.28, 0.17, 0.12, 0.23, 0.20], grade: D, q: "2", note: ""}
+  region_probs: {value: {north_america: 0.35, emea: 0.20, apac: 0.15, india: 0.30}, grade: D, q: "2", note: "India-based seller (answers header); company data"}
+  employee_bands: {value: {SMB: ["1-50", "51-200"], MM: ["51-200", "201-1000"], ENT: ["201-1000", "1001+"]}, grade: C, q: "2", note: ""}
+  source_mix: {value: {inbound: 0.34, outbound: 0.24, partner: 0.12, event: 0.10, referral: 0.12, competitor_displacement: 0.08}, grade: C, q: "5", note: "Referral added beyond brief list (Q5 names referrals); competitor displacement from Q19"}
+  source_win_mult: {value: {inbound: 1.25, outbound: 0.45, partner: 1.0, event: 0.9, referral: 1.7, competitor_displacement: 0.8}, grade: B, q: "5", note: "Referral 30-50% win, inbound about 50% vs outbound about 10%; normalised so the average chain holds"}
+  prospect_types: {value: {browser: 0.50, researcher: 0.25, evaluator: 0.15, locked_in: 0.10}, grade: C, q: "24", note: ""}
+  prospect_intent_mult: {value: {browser: 0.35, researcher: 1.0, evaluator: 2.6, locked_in: 0.8}, grade: C, q: "12", note: "Hypothesis: pricing visits, demo requests and repeat visits separate buyers from browsers. Normalised in code so the funnel averages hold"}
+  customer_types: {value: {power: 0.10, steady: 0.30, shallow: 0.25, shelfware: 0.15, project_based: 0.08, champion_dependent: 0.07, price_sensitive: 0.05}, grade: C, q: "24", note: ""}
+  active_share: {value: {power: [0.85, 0.95], steady: [0.65, 0.80], shallow: [0.30, 0.50], shelfware: [0.05, 0.25], project_based: [0.30, 0.70], champion_dependent: [0.40, 0.75], price_sensitive: [0.45, 0.75]}, grade: C, q: "25", note: "Wide overlap so types are not trivially separable"}
+  sessions_per_week: {value: {power: [4, 7], steady: [2, 5], shallow: [1, 2.5], shelfware: [0.3, 1], project_based: [0.5, 5], champion_dependent: [1.5, 4], price_sensitive: [1.5, 4]}, grade: C, q: "32", note: "Median 3-5 a week for daily-use tools"}
+  type_churn_shift: {value: {power: -0.9, steady: -0.3, shallow: 0.4, shelfware: 1.1, project_based: 0.5, champion_dependent: 0.4, price_sensitive: 0.7}, grade: C, q: "41", note: "Log-odds shift on renewal churn, before normalisation"}
+  incumbent_lock_in: {value: {none: 0.45, soft: 0.35, hard: 0.20}, grade: C, q: "20", note: "Only for accounts with a competitor; prospects only"}
+  competitor_known_share: {value: 0.40, grade: D, q: "20", note: "Current vendor known for 30-50% of accounts"}
+  competitor_in_deal: {value: 0.65, grade: C, q: "19", note: "A competitor appears in 60-70% of deals"}
+  champion_exit_per_year: {value: 0.17, grade: C, q: "26", note: "15 to 20% of champions change role each year"}
+  contacts_per_lead: {value: {SMB: [1, 2], MM: [2, 4], ENT: [3, 6]}, grade: B, q: "11", note: "Buying groups 6-10 for large deals; visible contacts are those that touched us"}
+  personal_email_share: {value: 0.12, grade: C, q: "74", note: "10 to 15% personal-email users"}
+  named_csm_share: {value: {SMB: 0.08, MM: 0.65, ENT: 1.0}, grade: C, q: "54", note: ""}
+  strategic_share: {value: 0.06, grade: D, q: "-", note: "Strategic flag; mostly enterprise"}
+  lead_growth_per_year: {value: 0.15, grade: C, q: "1", note: ""}
+  installed_base_age_days: {value: [30, 900], grade: C, q: "1", note: "Installed base accounts started paying up to this many days before window start"}
+funnel:
+  p_lead_to_mql: {value: 0.30, grade: B, q: "9", note: ""}
+  p_mql_to_sql: {value: 0.25, grade: C, q: "9", note: "Answers conflict: 13% vs 38%"}
+  p_sql_to_opp: {value: 0.42, grade: B, q: "9", note: ""}
+  p_opp_to_won: {value: 0.25, grade: B, q: "9", note: "22 to 39%"}
+  junk_lead_share: {value: 0.15, grade: C, q: "8", note: "10-20% duplicates, fakes, bots, out of profile; they never progress"}
+  stage_names: {value: ["discovery", "evaluation", "proposal", "negotiation"], grade: C, q: "10", note: "Client-defined in Salesforce"}
+  cycle_median_days: {value: {SMB: 30, MM: 75, ENT: 150}, grade: B, q: "10", note: "Answers conflict (40-190 days); mid values by segment"}
+  cycle_sigma: {value: 0.55, grade: C, q: "10", note: ""}
+  displacement_cycle_mult: {value: 1.6, grade: C, q: "19", note: "1.3 to 2x longer"}
+  lead_to_mql_days: {value: 10, grade: C, q: "30", note: "Median"}
+  mql_to_sql_days: {value: 9, grade: C, q: "30", note: ""}
+  sql_to_opp_days: {value: 7, grade: C, q: "30", note: ""}
+  lead_quiet_days: {value: 60, grade: A, q: "-", note: "State rule from the brief: Lead lost after 60 days quiet"}
+  loss_categories: {value: {price: 0.22, competitor: 0.28, no_decision: 0.25, timing: 0.12, product_gap: 0.10, champion_left: 0.03}, grade: C, q: "19", note: ""}
+  sessions_before_demo: {value: [3, 6], grade: C, q: "30", note: "3 to 6 sessions over 2 to 4 weeks"}
+  pages: {value: ["home", "pricing", "docs", "blog", "case_study", "demo", "integrations", "security"], grade: C, q: "30", note: ""}
+  trial_share_smb: {value: 0.30, grade: B, q: "16", note: "Product-led trial for part of SMB"}
+  trial_days: {value: 14, grade: B, q: "16", note: ""}
+  trial_to_paid: {value: 0.80, grade: C, q: "16", note: "Applied after the deal is won; non-converting trials cancel"}
+  never_live_share: {value: 0.05, grade: C, q: "22", note: "3 to 8% never go live or never pay"}
+  first_invoice_days: {value: [0, 30], grade: C, q: "22", note: ""}
+  security_legal_days: {value: [14, 45], grade: C, q: "21", note: ""}
+  legal_review_share: {value: {SMB: 0.05, MM: 0.30, ENT: 0.80}, grade: C, q: "21", note: "Drives the in_legal_review flag"}
+subscription:
+  annual_share: {value: {SMB: 0.55, MM: 0.85, ENT: 1.0}, grade: B, q: "3", note: "Remaining SMB accounts bill monthly"}
+  term_months_ent_multi: {value: 0.25, grade: C, q: "3", note: "Share of enterprise on 24-month terms (renewal clock still 12 or 24 months)"}
+  card_share: {value: {SMB: 0.85, MM: 0.45, ENT: 0.05}, grade: C, q: "3", note: "Rest pay by invoice (send_invoice)"}
+  plans: {value: {SMB: ["starter", "team"], MM: ["team", "business"], ENT: ["business", "enterprise"]}, grade: D, q: "2", note: ""}
+  auto_renew: {value: {SMB: 0.85, MM: 0.60, ENT: 0.30}, grade: C, q: "42", note: "Auto-renew has far fewer silent lapses"}
+  annual_discount_note: {value: 0.20, grade: B, q: "3", note: "Annual plans at 15 to 25% off; documented only, amounts are banded"}
+  price_rise: {value: 0.10, grade: B, q: "50", note: "8 to 12% a year on renewal list price (documented; amounts banded)"}
+  renewal_open_days: {value: 120, grade: B, q: "47", note: "Renewal opportunity opens 90-120 days before term end"}
+  late_renewal_share: {value: 0.12, grade: B, q: "47", note: "10 to 15% close after term end"}
+retention:
+  annual_churn: {value: {SMB: 0.15, MM: 0.10, ENT: 0.05}, grade: B, q: "41", note: "Logo churn per year. Answers also give a mid-market renewal split summing to 17% churn; this setting wins and the split is used for the cancel:lapse ratio only (flagged)"}
+  cancel_vs_lapse: {value: {cancelled: 0.59, silent_lapse: 0.41}, grade: C, q: "42", note: "10:7 from the renewal split"}
+  lapse_given_annual_churn: {value: 1.0, grade: C, q: "42", note: "Share of annual-contract churners that lapse silently (no cancel request), before the auto-renew reduction. Monthly plans cannot lapse. Tuned so silent lapse is roughly 30-40% of churn overall (mid-market split 10:7)"}
+  contraction_prob: {value: {SMB: 0.08, MM: 0.08, ENT: 0.08}, grade: C, q: "42", note: "8% at renewal; 5-10% a year (Q51)"}
+  contraction_size: {value: [0.10, 0.35], grade: C, q: "51", note: "Share of seats or ARR dropped"}
+  expansion_prob_year: {value: {SMB: 0.30, MM: 0.38, ENT: 0.40}, grade: C, q: "61", note: "Share of accounts expanding in a year; 15-25% gives about 18 points of expansion in mid-market"}
+  expansion_at_renewal_share: {value: 0.40, grade: B, q: "28", note: "40% of expansions at renewal"}
+  expansion_size: {value: {SMB: [0.15, 0.6], MM: [0.2, 0.7], ENT: [0.2, 0.9]}, grade: C, q: "61", note: "Seat growth range"}
+  usage_decay_gradual: {value: 0.60, grade: C, q: "38", note: "60% gradual over 4-8 weeks, 40% sudden"}
+  decay_weeks: {value: [4, 8], grade: C, q: "38", note: ""}
+  sudden_lead_days: {value: [0, 45], grade: C, q: "38", note: "Sudden stop happens this many days before term end"}
+  win_back_return: {value: 0.10, grade: B, q: "53", note: "8 to 12% of churned accounts return"}
+  lost_return: {value: 0.07, grade: C, q: "63", note: "5 to 10% of lost deals return within 12 months"}
+  churn_reason_mix: {value: {competitor: 0.40, closed_or_no_need: 0.30, internal_build: 0.20, price: 0.10}, grade: C, q: "64", note: "35-45 / 25-35 / 20-30"}
+  champion_churn_lift: {value: 0.9, grade: C, q: "26", note: "Log-odds lift when the champion left and no backup (vendor claim 40% churn, illustrative)"}
+  decay_churn_lift: {value: 1.3, grade: C, q: "43", note: "Log-odds lift per unit usage decay"}
+  ticket_churn_lift: {value: 0.5, grade: C, q: "57", note: "Unresolved or escalated tickets lower renewal odds, fading over 60-90 days"}
+  integration_churn_cut: {value: 0.45, grade: C, q: "39", note: "30-50% lower churn for connected accounts; unproven, labelled so"}
+  integration_share: {value: 0.38, grade: C, q: "39", note: "30 to 45%"}
+  onboarding_activation: {value: {power: 0.95, steady: 0.88, shallow: 0.65, shelfware: 0.45, project_based: 0.75, champion_dependent: 0.8, price_sensitive: 0.8}, grade: C, q: "23", note: "Reaches first value event within 90 days"}
+  first_value_days: {value: {SMB: 7, MM: 14, ENT: 35}, grade: C, q: "23", note: "Median days to first value"}
+  early_churn_share: {value: 0.70, grade: B, q: "23", note: "Vendor claim, unverified: used only to bias hazard to first 90 days for never-activated accounts"}
+usage:
+  features: {value: ["dashboard", "report", "export", "integration_connected", "api_call", "invite_sent", "seat_added", "admin_settings"], grade: C, q: "33", note: "Also login and feature_used events; names are the client's own"}
+  feature_probs: {value: [0.34, 0.22, 0.10, 0.04, 0.12, 0.04, 0.02, 0.12], grade: C, q: "34", note: "Core feature in 70% of active accounts; advanced 20-30%"}
+  features_per_active_day: {value: [1, 3], grade: C, q: "32", note: ""}
+  weekday_mult: {value: [1.15, 1.25, 1.25, 1.2, 0.95, 0.12, 0.08], grade: C, q: "36", note: "Mon..Sun; Tue-Thu peak"}
+  holiday_weeks: {value: [["2024-12-23", "2025-01-03"], ["2025-12-22", "2026-01-02"], ["2024-10-28", "2024-11-03"], ["2025-10-20", "2025-10-26"], ["2026-11-08", "2026-11-14"]], grade: C, q: "36", note: "30-40% dip in holiday weeks; Diwali dates unverified"}
+  holiday_mult: {value: 0.65, grade: C, q: "36", note: ""}
+  month_end_lift: {value: 1.12, grade: C, q: "36", note: "Last 3 days of month, finance and sales tools"}
+  events_per_feature_day: {value: [3, 25], grade: C, q: "32", note: "Event count per feature per day"}
+  minutes_per_feature_day: {value: [2, 25], grade: C, q: "32", note: ""}
+  unmatched_user_share: {value: 0.08, grade: C, q: "37", note: "5 to 15% of product users unmatched to an account"}
+  login_fail_rate: {value: 0.045, grade: C, q: "35", note: "3 to 6% failed logins"}
+  sso_share: {value: 0.30, grade: C, q: "35", note: "20-40% of MM and ENT"}
+  amplitude_late_hours: {value: [1, 6], grade: B, q: "76", note: "Usage reaches the warehouse by upload time"}
+billing:
+  card_fail_rate: {value: 0.040, grade: B, q: "48", note: "3 to 5% of card charges; initial failure"}
+  retry_days: {value: [1, 3, 5, 7], grade: C, q: "48", note: "Client reminder and retry cadence (Stripe Smart Retries default is up to 8 retries in 2 weeks; verified)"}
+  retry_recover_each: {value: 0.22, grade: B, q: "48", note: "About 48% recovered over the sequence (median 47.6%); 61% of recoveries in week 1"}
+  customer_fix_prob: {value: 0.5, grade: C, q: "48", note: "Customer updates the card after the dunning email. Reconciles 3-5% failures and about 48% retry recovery with 20-40% involuntary share of churn"}
+  hard_decline_share: {value: 0.25, grade: C, q: "48", note: "Hard declines are not retried"}
+  invoice_late_share: {value: 0.30, grade: C, q: "49", note: "25 to 35% pay late"}
+  invoice_late_days: {value: [10, 15], grade: C, q: "49", note: "Median days late"}
+  dispute_share: {value: 0.03, grade: C, q: "49", note: "2 to 4% disputed"}
+  net_terms_days: {value: 30, grade: C, q: "22", note: "Net 30 for invoice accounts"}
+  refund_share: {value: 0.01, grade: C, q: "49", note: ""}
+  after_retries: {value: {cancelled: 0.6, unpaid: 0.2, past_due: 0.1, paused: 0.1}, grade: C, q: "48", note: "Subscription state after retries fail (Stripe docs list these four)"}
+  involuntary_target: {value: [0.20, 0.40], grade: B, q: "42", note: "20-40% of churn; used by the validator, not a driver"}
+support:
+  tickets_per_month: {value: [0.5, 1.0], grade: C, q: "56", note: "Median 0.5-1 a month per account (scaled by seats)"}
+  ticket_topics: {value: ["bug", "how_to", "billing", "integration"], grade: C, q: "56", note: ""}
+  ticket_topic_probs: {value: [0.30, 0.35, 0.15, 0.20], grade: C, q: "56", note: ""}
+  solve_days_median: {value: 2.0, grade: C, q: "56", note: "1 to 3 days"}
+  csat_response: {value: 0.35, grade: C, q: "58", note: ""}
+  reopen_prob: {value: 0.08, grade: C, q: "56", note: ""}
+  pre_churn_ticket_lift: {value: 1.8, grade: C, q: "43", note: "Ticket rate multiplier in the 90 days before a cancellation"}
+cs:
+  health_cuts: {value: [40, 70], grade: C, q: "44", note: "red < 40, yellow < 70, else green (client-defined; banded)"}
+  health_noise_sd: {value: 12, grade: C, q: "44", note: "Scores predict churn only moderately"}
+  cta_response_days: {value: [2, 5], grade: C, q: "55", note: ""}
+  cta_save_rate: {value: 0.25, grade: C, q: "55", note: "20 to 35%; vendor claims unverified"}
+  cta_statuses: {value: ["new", "work_in_progress", "closed_success", "closed_no_action", "closed_invalid"], grade: A, q: "55", note: "Gainsight defaults (verified, step 2)"}
+  review_share: {value: {SMB: 0.0, MM: 0.12, ENT: 0.60}, grade: C, q: "60", note: "Executive or quarterly business reviews"}
+messaging:
+  consent_initial: {value: {granted: 0.50, withdrawn: 0.02}, grade: D, q: "67", note: "Rest unknown, which means hold. Per contact, per channel (email)"}
+  optin_at_form: {value: 0.55, grade: C, q: "67", note: "Form-fill opt-in for inbound leads"}
+  unsub_rate: {value: 0.0012, grade: B, q: "67", note: "About 0.12%"}
+  bounce_rate: {value: 0.015, grade: B, q: "71", note: "Under 2%"}
+  open_rate: {value: 0.30, grade: B, q: "65", note: "Inflated by Apple Mail privacy"}
+  click_rate: {value: 0.045, grade: B, q: "65", note: ""}
+  reply_rate: {value: 0.035, grade: B, q: "65", note: "Cold email 3.43%"}
+  frequency_cap_days: {value: 14, grade: C, q: "71", note: "At most 2 discretionary touches in this window"}
+  frequency_cap_n: {value: 2, grade: C, q: "71", note: ""}
+  hold_renewal_days: {value: 14, grade: A, q: "59", note: "Rule: open opportunity or renewal inside 14 days or open ticket holds automated messages"}
+policy:
+  actions: {value: ["email", "rep_outreach", "discount", "exec_call", "csm_task"], grade: C, q: "46", note: "Plus do_nothing; transactional and regulatory sends are logged but never chosen"}
+  exploration_do_nothing: {value: 0.25, grade: C, q: "70", note: ""}
+  legacy_base_touch: {value: 0.30, grade: C, q: "66", note: "Legacy: chance of any touch rises with ARR and engagement"}
+  legacy_fit_slope: {value: 1.6, grade: C, q: "66", note: ""}
+  legacy_arr_slope: {value: 0.9, grade: C, q: "66", note: ""}
+  decision_scale: {value: {lead_stall: 0.6, opp_stall: 1.0, onboarding: 0.8, risk: 1.0, expansion: 0.8, winback: 0.5}, grade: C, q: "62", note: "Scales planted uplift by decision kind"}
+  reacts_badly_share: {value: 0.05, grade: C, q: "71", note: "Complaint risk; negative response to any discretionary touch"}
+  reacts_badly_effect: {value: -0.06, grade: C, q: "71", note: ""}
+  uplift_prospect:
+    grade: C
+    q: "46,62"
+    note: "Planted true effect on the decision outcome probability (absolute). Illustrative, not measurements"
+    value:
+      browser:    {email: 0.030, rep_outreach: 0.020, discount: 0.010, exec_call: 0.000, csm_task: 0.000}
+      researcher: {email: 0.050, rep_outreach: 0.070, discount: 0.030, exec_call: 0.020, csm_task: 0.000}
+      evaluator:  {email: 0.020, rep_outreach: 0.110, discount: 0.060, exec_call: 0.090, csm_task: 0.000}
+      locked_in:  {email: -0.010, rep_outreach: 0.040, discount: 0.020, exec_call: 0.070, csm_task: 0.000}
+  uplift_customer:
+    grade: C
+    q: "46,62"
+    note: "Discount is negative for several types: leading with a discount trains customers to churn and return (Q46). Sleeping dogs are negative cells"
+    value:
+      power:              {email: 0.010, rep_outreach: 0.020, discount: -0.010, exec_call: 0.010, csm_task: 0.010}
+      steady:             {email: 0.020, rep_outreach: 0.040, discount: 0.010, exec_call: 0.030, csm_task: 0.040}
+      shallow:            {email: 0.010, rep_outreach: 0.030, discount: 0.000, exec_call: 0.020, csm_task: 0.080}
+      shelfware:          {email: 0.000, rep_outreach: 0.010, discount: -0.030, exec_call: 0.020, csm_task: 0.070}
+      project_based:      {email: -0.020, rep_outreach: 0.020, discount: 0.000, exec_call: 0.010, csm_task: 0.030}
+      champion_dependent: {email: 0.010, rep_outreach: 0.050, discount: 0.010, exec_call: 0.110, csm_task: 0.090}
+      price_sensitive:    {email: 0.000, rep_outreach: 0.020, discount: 0.120, exec_call: 0.020, csm_task: 0.020}
+  capacity: {value: {exec_call_arr_floor: 25000}, grade: D, q: "54", note: "Executive calls only for accounts above this ARR"}
+noise:
+  duplicate: {value: 0.004, grade: C, q: "74", note: "Duplicate events"}
+  missing_field: {value: 0.012, grade: C, q: "74", note: "Channel blanked"}
+  wrong_timestamp: {value: 0.004, grade: C, q: "76", note: ""}
+  late: {value: 0.020, grade: C, q: "76", note: ""}
+  out_of_order: {value: 0.020, grade: A, q: "76", note: "1 to 3% out of order"}
+  ga4_late_days: {value: 3, grade: C, q: "76", note: ""}
+  duplicate_account_share: {value: 0.075, grade: C, q: "74", note: "5 to 10% duplicate accounts (split identities)"}
+  duplicate_event_share: {value: 0.45, grade: C, q: "74", note: "Share of an account's pre-win events carried by the duplicate id"}
+  wrongly_matched_share: {value: 0.03, grade: C, q: "75", note: "2 to 5% of users wrongly matched (logged in noise_log)"}
+  test_account_share: {value: 0.004, grade: C, q: "74", note: "Internal test accounts, flagged only in noise_log"}
+  multi_account_user_share: {value: 0.05, grade: C, q: "74", note: "3 to 8% of users in several accounts"}
+  bot_share_of_anon_sessions: {value: 0.04, grade: C, q: "37", note: ""}
+  tracking_gaps: {value: {per_year: 2, days: 3}, grade: C, q: "78", note: ""}
+  anon_visit_unlinked: {value: 0.55, grade: C, q: "13", note: "Share of web sessions never matched to an account (company match 30-65%)"}
+sessions:
+  timeout_minutes: {value: 30, grade: B, q: "37", note: "GA4 default 30 minutes (verified, secondary source)"}
+  mean_pages: {value: 3.5, grade: C, q: "30", note: ""}
+  hour_weights: {value: [0.2,0.1,0.1,0.1,0.1,0.3,0.8,2.0,4.0,6.0,7.0,7.0,6.0,6.5,7.0,7.0,6.0,4.0,2.5,1.5,1.0,0.8,0.5,0.3], grade: C, q: "35", note: "Business hours in the account time zone (simplified to one clock)"}
+states:
+  rule_version: {value: "b2b-v1", grade: C, q: "-", note: ""}
+  onboarding_max_days: {value: 90, grade: A, q: "23", note: "Brief: Onboarding until first value or day 90"}
+  at_risk_window_days: {value: 120, grade: A, q: "43", note: "Renewal within 120 days and risk signals"}
+  cooling_off_days: {value: 90, grade: A, q: "63", note: "Lost to new opportunity cooling off"}
+  expansion_window_days: {value: 120, grade: C, q: "62", note: ""}
+  usage_decay_threshold: {value: 0.5, grade: C, q: "45", note: "Usage down 30-40% vs baseline or seat use under 50% is at risk; engine reads the health band"}
+labels:
+  renewal_buffer_days: {value: 45, grade: C, q: "47", note: "Renewal label final this many days after term end (late renewals 10-15%)"}
+  win_horizon_days: {value: 180, grade: C, q: "10", note: ""}
+  churn_horizon_days: {value: 90, grade: C, q: "43", note: ""}
+campaigns:
+  ad_campaigns: {value: {paid_search: 4, paid_social: 3, partner: 3}, grade: D, q: "5", note: "Count per channel"}
+  cpc_usd: {value: 6.5, grade: C, q: "5", note: ""}
+  ctr: {value: 0.03, grade: C, q: "5", note: ""}

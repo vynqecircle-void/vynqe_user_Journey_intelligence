@@ -1,0 +1,223 @@
+{
+ "table": "borrowers",
+ "hidden": false,
+ "description": "One row per person; also holds the identity map (one ref per system), marketing consent snapshot and holdout assignment. Leads live in events.",
+ "columns": [
+  {
+   "name": "unit_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "person_key",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": "HMAC-SHA-256 of normalised phone; not unique when a phone is shared"
+  },
+  {
+   "name": "created_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "first_application_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "applications_count",
+   "type": "int",
+   "nullable": false,
+   "allowed": null,
+   "description": "EXTRACT-TIME snapshot (leakage trap)"
+  },
+  {
+   "name": "loans_count",
+   "type": "int",
+   "nullable": false,
+   "allowed": null,
+   "description": "EXTRACT-TIME snapshot (leakage trap)"
+  },
+  {
+   "name": "existing_customer",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": "From core banking at first contact"
+  },
+  {
+   "name": "acquisition_channel",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "device_class",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "android",
+    "ios",
+    "web_mobile",
+    "web_desktop"
+   ],
+   "description": ""
+  },
+  {
+   "name": "geo_tier",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "metro",
+    "tier1",
+    "tier2",
+    "tier3",
+    "rural"
+   ],
+   "description": "Flagged extension: not in workbook"
+  },
+  {
+   "name": "email_consent",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "granted",
+    "denied",
+    "unknown",
+    "withdrawn"
+   ],
+   "description": "EXTRACT-TIME snapshot of MARKETING consent; history in consent_change events"
+  },
+  {
+   "name": "sms_consent",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "granted",
+    "denied",
+    "unknown",
+    "withdrawn"
+   ],
+   "description": ""
+  },
+  {
+   "name": "whatsapp_consent",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "granted",
+    "denied",
+    "unknown",
+    "withdrawn"
+   ],
+   "description": ""
+  },
+  {
+   "name": "do_not_market",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "regime_first_seen",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "legacy_targeting",
+    "randomised_holdout"
+   ],
+   "description": ""
+  },
+  {
+   "name": "holdout_group",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "control",
+    "treated"
+   ],
+   "description": ""
+  },
+  {
+   "name": "holdout_assigned_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "holdout_share",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "holdout_strategy",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "random_hash"
+   ],
+   "description": ""
+  },
+  {
+   "name": "los_customer_ref",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "salesforce_lead_ref",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "klaviyo_profile_ref",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "razorpay_ref",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "core_banking_ref",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": "Hashed CIF; set once a loan is disbursed"
+  },
+  {
+   "name": "trackflow_user_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "email_key",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": "HMAC of lowercased email"
+  }
+ ]
+}

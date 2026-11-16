@@ -1,0 +1,73 @@
+{
+ "table": "state_history",
+ "hidden": false,
+ "description": "Output of the reference state engine run on the VISIBLE events.",
+ "columns": [
+  {
+   "name": "unit_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "state",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "Lead",
+    "Application started",
+    "KYC drop-off",
+    "Consent pending",
+    "In review",
+    "Offer pending",
+    "Signing and mandate pending",
+    "Rejected",
+    "Activated",
+    "Repaying",
+    "Late",
+    "Top-up eligible",
+    "Dormant"
+   ],
+   "description": ""
+  },
+  {
+   "name": "entered_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "exited_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "entered_by",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "event",
+    "silence"
+   ],
+   "description": ""
+  },
+  {
+   "name": "flags",
+   "type": "json",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "rule_version",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  }
+ ]
+}

@@ -1,0 +1,779 @@
+[
+ {
+  "group": "schema",
+  "check": "customers: columns match contract",
+  "observed": 24,
+  "expected": 24,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "customers: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "customers: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "events: columns match contract",
+  "observed": 14,
+  "expected": 14,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "events: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "events: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "orders: columns match contract",
+  "observed": 30,
+  "expected": 30,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "orders: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "orders: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "payments: columns match contract",
+  "observed": 10,
+  "expected": 10,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "payments: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "payments: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "tickets: columns match contract",
+  "observed": 12,
+  "expected": 12,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "tickets: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "tickets: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "actions: columns match contract",
+  "observed": 32,
+  "expected": 32,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "actions: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "actions: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "state_history: columns match contract",
+  "observed": 7,
+  "expected": 7,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "state_history: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "state_history: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "campaigns: columns match contract",
+  "observed": 10,
+  "expected": 10,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "campaigns: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "campaigns: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "category_value: columns match contract",
+  "observed": 5,
+  "expected": 5,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "category_value: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "category_value: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "person_truth: columns match contract",
+  "observed": 24,
+  "expected": 24,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "person_truth: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "person_truth: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "order_truth: columns match contract",
+  "observed": 8,
+  "expected": 8,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "order_truth: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "order_truth: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "state_truth: columns match contract",
+  "observed": 4,
+  "expected": 4,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "state_truth: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "state_truth: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "noise_log: columns match contract",
+  "observed": 3,
+  "expected": 3,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "noise_log: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "noise_log: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "orders.unit_id in customers",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "payments.order_id in orders (when set)",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "events.unit_id in customers",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "actions/tickets/state_history unit_id in customers",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "order_truth 1:1 with orders",
+  "observed": 2448,
+  "expected": 2448,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "person_truth 1:1 with customers",
+  "observed": 1000,
+  "expected": 1000,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "unique keys (orders, tickets, actions, payments)",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "state_history stays do not overlap",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "delivered_at after created_at",
+  "observed": true,
+  "expected": true,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "privacy",
+  "check": "no raw phone/email in event properties",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "privacy",
+  "check": "no raw-PII or exact-amount column names in visible tables",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "privacy",
+  "check": "visible amounts are bands only",
+  "observed": [
+   "0-500",
+   "1000-1500",
+   "1500-2500",
+   "2500-5000",
+   "500-1000",
+   "5000+"
+  ],
+  "expected": "bands",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "leakage",
+  "check": "no hidden-table column names in visible tables",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "leakage",
+  "check": "feature/label/state-engine modules import no hidden code",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "COD share of orders",
+  "observed": 0.594,
+  "expected": "~0.57 (workbook 57%)",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "RTO rate among shipped COD orders",
+  "observed": 0.259,
+  "expected": "20-30% typical COD (flag: grade C)",
+  "pass": true,
+  "note": "Above the middle of the range; tune in config"
+ },
+ {
+  "group": "distribution",
+  "check": "RTO rate prepaid (should be far lower than COD)",
+  "observed": 0.031,
+  "expected": "< 0.129",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "refund share of shipped orders",
+  "observed": 0.147,
+  "expected": "5-15% (grade C)",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "payment attempt success upi",
+  "observed": 0.944,
+  "expected": 0.965,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "payment attempt success card",
+  "observed": 0.854,
+  "expected": 0.87,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "payment attempt success netbanking",
+  "observed": 0.886,
+  "expected": 0.9,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "payment attempt success wallet",
+  "observed": 0.912,
+  "expected": 0.93,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "share of customers with >=1 order",
+  "observed": 0.724,
+  "expected": "type-driven (one_time 40% largest)",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "tickets per order",
+  "observed": 0.158,
+  "expected": "0.05-0.25",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "events per customer",
+  "observed": 245.2,
+  "expected": "180-420 (research range)",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "largest hidden type is one_time_buyer",
+  "observed": "one_time_buyer",
+  "expected": "one_time_buyer",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "sessions per customer (identified)",
+  "observed": 28.3,
+  "expected": "20-46 (research range, all traffic)",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "noise",
+  "check": "duplicate rate vs config",
+  "observed": 0.0189,
+  "expected": 0.02,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "noise",
+  "check": "late rate vs config",
+  "observed": 0.0192,
+  "expected": 0.02,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "noise",
+  "check": "missing_field rate vs config",
+  "observed": 0.0089,
+  "expected": 0.01,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "noise",
+  "check": "wrong_timestamp rate vs config",
+  "observed": 0.0045,
+  "expected": 0.005,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "noise",
+  "check": "bot and tracking-gap defects present",
+  "observed": [
+   5478,
+   892
+  ],
+  "expected": ">0",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "noise",
+  "check": "duplicates are visible as repeated source_event_id",
+  "observed": 9270,
+  "expected": ">0",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "noise",
+  "check": "GA4 median ingest lag (hours; daily export next morning)",
+  "observed": 19.7,
+  "expected": "6-30h",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "noise",
+  "check": "webhook median ingest lag (seconds)",
+  "observed": 32.6,
+  "expected": "<120s",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "guardrails",
+  "check": "every reason code appears at least once",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": "Missing codes need more data or a rule tweak"
+ },
+ {
+  "group": "guardrails",
+  "check": "no executed action was also blocked (except approval -> task)",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "guardrails",
+  "check": "holdout-control customers never receive an action",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "guardrails",
+  "check": "holdout share",
+  "observed": 0.077,
+  "expected": 0.08,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "guardrails",
+  "check": "promotional sends with no granted consent at send time (visible events; late/dup noise may add a few)",
+  "observed": 16,
+  "expected": "~0",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "recoverability",
+  "check": "hidden type predicted from visible behaviour (3-fold accuracy)",
+  "observed": 0.561,
+  "expected": "> majority 0.364 but < 0.95 (not trivial)",
+  "pass": true,
+  "note": "Shows types are learnable but not perfectly"
+ },
+ {
+  "group": "recoverability",
+  "check": "loyal buyers order more than one-time buyers",
+  "observed": {
+   "deal_seeker": 4.31,
+   "festival_only_buyer": 0.78,
+   "gift_buyer": 2.09,
+   "loyal_buyer": 8.06,
+   "one_time_buyer": 1.3,
+   "window_shopper": 1.14
+  },
+  "expected": "loyal > one_time",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "uplift",
+  "check": "randomised estimate per action vs planted mean uplift (est, std err, planted mean, n)",
+  "observed": {
+   "reminder": [
+    0.009,
+    0.013,
+    0.019,
+    1635
+   ],
+   "discount": [
+    0.038,
+    0.017,
+    0.037,
+    978
+   ],
+   "free_shipping": [
+    0.043,
+    0.014,
+    0.042,
+    1556
+   ],
+   "bundle": [
+    -0.001,
+    0.012,
+    0.023,
+    1709
+   ]
+  },
+  "expected": "same sign; estimates noisy at small n",
+  "pass": false,
+  "note": "Lift also includes the cart-trigger multiplier (x2) for cart rows"
+ },
+ {
+  "group": "uplift",
+  "check": "planted uplift differs by hidden type",
+  "observed": {
+   "uplift_discount": {
+    "deal_seeker": 0.079,
+    "festival_only_buyer": 0.032,
+    "gift_buyer": 0.029,
+    "loyal_buyer": 0.019,
+    "one_time_buyer": 0.019,
+    "window_shopper": 0.056
+   },
+   "uplift_free_shipping": {
+    "deal_seeker": 0.061,
+    "festival_only_buyer": 0.018,
+    "gift_buyer": 0.037,
+    "loyal_buyer": 0.051,
+    "one_time_buyer": 0.028,
+    "window_shopper": 0.047
+   }
+  },
+  "expected": "deal_seeker discount highest",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "uplift",
+  "check": "sleeping dogs exist (negative planted uplift)",
+  "observed": 0.049,
+  "expected": 0.04,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "labels",
+  "check": "finality buffer leaves some rows non-final near the window end",
+  "observed": 0.746,
+  "expected": "<1",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "labels",
+  "check": "no row marked final inside the buffer",
+  "observed": "2026-09-13 05:10:45.891000+00:00",
+  "expected": ">= end - 52d",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "state",
+  "check": "visible-event state matches truth (unit,state pairs found)",
+  "observed": 0.984,
+  "expected": "< 1 (noise and identity splits cost some)",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "state",
+  "check": "all six states present",
+  "observed": [
+   "Active",
+   "New customer",
+   "New visitor",
+   "Re-engage",
+   "Reactivate",
+   "Retarget"
+  ],
+  "expected": [
+   "Active",
+   "New customer",
+   "New visitor",
+   "Re-engage",
+   "Reactivate",
+   "Retarget"
+  ],
+  "pass": true,
+  "note": ""
+ }
+]

@@ -1,0 +1,136 @@
+{
+ "table": "application_truth",
+ "hidden": true,
+ "description": "HIDDEN. Exact amounts, terms, days-past-due path and the true default label.",
+ "columns": [
+  {
+   "name": "application_ref",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "unit_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "kind",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "natural",
+    "incremental"
+   ],
+   "description": ""
+  },
+  {
+   "name": "cause_decision_id",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "requested_amount",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "sanctioned_amount",
+   "type": "float",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "disbursed_amount",
+   "type": "float",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "apr",
+   "type": "float",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "tenure_months",
+   "type": "int",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "fee_pct",
+   "type": "float",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "emi_amount",
+   "type": "float",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "true_default",
+   "type": "bool",
+   "nullable": true,
+   "allowed": null,
+   "description": "90+ DPD within 12 months on book; null when not disbursed"
+  },
+  {
+   "name": "label_final",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": "Loan old enough (15+ months) for the default label to be final"
+  },
+  {
+   "name": "first_dpd90_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "pay_path",
+   "type": "json",
+   "nullable": true,
+   "allowed": null,
+   "description": "Per instalment: state, days late"
+  },
+  {
+   "name": "max_dpd",
+   "type": "int",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "prepay_month",
+   "type": "int",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "p_default_hint",
+   "type": "float",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  }
+ ]
+}

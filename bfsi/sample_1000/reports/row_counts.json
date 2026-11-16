@@ -1,0 +1,22 @@
+{
+ "n_people": 1000,
+ "seed": 42,
+ "preset": "tiny",
+ "rows": {
+  "borrowers": 1000,
+  "events": 47820,
+  "applications": 507,
+  "application_steps": 1224,
+  "loans": 71,
+  "emi_payments": 838,
+  "service_cases": 78,
+  "actions": 3424,
+  "state_history": 3062,
+  "campaigns": 10977,
+  "person_truth": 1000,
+  "application_truth": 507,
+  "state_truth": 3061,
+  "noise_log": 9504
+ },
+ "seconds": 1.6
+}

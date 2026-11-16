@@ -1,0 +1,127 @@
+{
+ "table": "contacts",
+ "hidden": false,
+ "description": "One row per person. Leads are merged in here (lead_* columns).",
+ "columns": [
+  {
+   "name": "person_key",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": "HMAC-SHA-256 of normalised work or personal email"
+  },
+  {
+   "name": "account_id",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": "Null when unmatched"
+  },
+  {
+   "name": "contact_ref",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "role",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "champion",
+    "economic_buyer",
+    "technical",
+    "end_user"
+   ],
+   "description": ""
+  },
+  {
+   "name": "seniority_band",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "ic",
+    "manager",
+    "director",
+    "vp",
+    "c_level"
+   ],
+   "description": ""
+  },
+  {
+   "name": "email_consent",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "granted",
+    "denied",
+    "unknown",
+    "withdrawn"
+   ],
+   "description": "EXTRACT-TIME snapshot of marketing email consent; history in consent_change events"
+  },
+  {
+   "name": "personal_email",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "first_seen_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "left_account_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "lead_status",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "new",
+    "contacted",
+    "qualified",
+    "converted",
+    "lost"
+   ],
+   "description": "Set for the contact that came in as a lead"
+  },
+  {
+   "name": "lead_source",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "lead_created_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "lead_converted_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "is_product_user",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  }
+ ]
+}

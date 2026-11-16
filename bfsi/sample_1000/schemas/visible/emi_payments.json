@@ -1,0 +1,100 @@
+{
+ "table": "emi_payments",
+ "hidden": false,
+ "description": "One row per EMI payment attempt.",
+ "columns": [
+  {
+   "name": "payment_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "loan_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "unit_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "instalment_no",
+   "type": "int",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "due_date",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "status",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "created",
+    "authorised",
+    "captured",
+    "failed",
+    "refunded"
+   ],
+   "description": "Final status of this attempt: captured or failed"
+  },
+  {
+   "name": "method",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "upi_autopay",
+    "emandate",
+    "manual_upi",
+    "netbanking"
+   ],
+   "description": ""
+  },
+  {
+   "name": "amount_band",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "created_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "error_category",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "insufficient_funds",
+    "technical",
+    "mandate_inactive",
+    "bank_decline"
+   ],
+   "description": ""
+  },
+  {
+   "name": "attempt_no",
+   "type": "int",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  }
+ ]
+}

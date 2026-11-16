@@ -1,0 +1,188 @@
+{
+ "table": "applications",
+ "hidden": false,
+ "description": "One row per loan application. Stage history is in events (record_status_changed).",
+ "columns": [
+  {
+   "name": "application_ref",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "unit_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "product_code",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "personal_loan"
+   ],
+   "description": ""
+  },
+  {
+   "name": "application_kind",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "new",
+    "top_up",
+    "win_back"
+   ],
+   "description": "Flagged extension"
+  },
+  {
+   "name": "created_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "channel",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "web",
+    "app",
+    "email",
+    "sms",
+    "whatsapp",
+    "push",
+    "in_app",
+    "call",
+    "store",
+    "kiosk",
+    "paid_search",
+    "paid_social",
+    "affiliate",
+    "partner",
+    "referral",
+    "organic",
+    "branch"
+   ],
+   "description": ""
+  },
+  {
+   "name": "campaign_id",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "branch_code",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "stage",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "applied",
+    "docs_pending",
+    "in_review",
+    "approved",
+    "offer_accepted",
+    "signed",
+    "rejected",
+    "disbursed"
+   ],
+   "description": "Snapshot at extract time; offer_accepted and signed are additions to confirm"
+  },
+  {
+   "name": "stage_changed_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "rejection_reason_category",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "policy",
+    "income",
+    "kyc",
+    "fraud",
+    "other"
+   ],
+   "description": ""
+  },
+  {
+   "name": "requested_amount_band",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "sanctioned_amount_band",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "disbursed_amount_band",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "sanction_date",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "disbursal_date",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "decision_band",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "approve",
+    "refer",
+    "decline"
+   ],
+   "description": ""
+  },
+  {
+   "name": "risk_band",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "band_1",
+    "band_2",
+    "band_3",
+    "band_4"
+   ],
+   "description": "The lender's own band (noisy function of true risk); null until decided"
+  },
+  {
+   "name": "decision_id",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": "Set only when the person clicked or was called after a decision (observable attribution)"
+  }
+ ]
+}

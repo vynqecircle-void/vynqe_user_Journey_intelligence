@@ -1,0 +1,84 @@
+{
+ "table": "opportunity_truth",
+ "hidden": true,
+ "description": "HIDDEN. Exact amounts, true win probability with and without the action, and the true label.",
+ "columns": [
+  {
+   "name": "opp_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "unit_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "p_win_true",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "p_win_no_action",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "cycle_days_true",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "amount",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "discount_pct",
+   "type": "float",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "true_won",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "true_loss_category",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "label_final",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": "Old enough for the outcome to be final"
+  },
+  {
+   "name": "cause_decision_id",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  }
+ ]
+}

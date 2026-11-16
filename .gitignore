@@ -1,0 +1,14 @@
+# Ignore large data directories
+out_b2b/
+out_bfsi/
+out_ecommerce/
+feature/output_b2b/
+feature/output_bfsi/
+feature/output_ecomm/
+
+.syndata/
+
+# Ignore specific large file formats
+*.csv
+*.parquet
+*.zip

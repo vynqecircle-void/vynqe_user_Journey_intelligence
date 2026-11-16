@@ -1,0 +1,115 @@
+{
+ "table": "invoices",
+ "hidden": false,
+ "description": "One row per invoice with payment outcome and dunning attempts.",
+ "columns": [
+  {
+   "name": "invoice_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "subscription_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "account_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "amount_band",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "<5k",
+    "5-10k",
+    "10-25k",
+    "25-50k",
+    "50-100k",
+    "100-250k",
+    "250k+"
+   ],
+   "description": ""
+  },
+  {
+   "name": "issued_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "due_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "paid_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "status",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "created",
+    "authorised",
+    "captured",
+    "failed",
+    "refunded"
+   ],
+   "description": "EXTRACT-TIME snapshot"
+  },
+  {
+   "name": "collection_method",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "charge_automatically",
+    "send_invoice"
+   ],
+   "description": ""
+  },
+  {
+   "name": "attempt_count",
+   "type": "int",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "error_code",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "disputed",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "is_renewal",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  }
+ ]
+}

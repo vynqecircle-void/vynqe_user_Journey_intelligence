@@ -1,0 +1,191 @@
+# BFSI personal-loan pack settings. SYNTHETIC DATA. Every leaf: value, grade, q (BFSI 55-answer file), note.
+# Grades: A official, B benchmark (vendor/agency/secondary, low confidence), C modelling assumption, D client-only (placeholder).
+run:
+  start_date: {value: "2023-11-01", grade: C, q: "2", note: "36-month window ending 31 Oct 2026 (brief: 36 months for BFSI; answers suggest 24, but Q25 labels only loans 15+ months old)"}
+  n_days: {value: 1096, grade: C, q: "2", note: "36 months"}
+  regime2_day: {value: 548, grade: C, q: "46", note: "Months 1-18 legacy targeting (about 1 May 2025); months 19-36 randomised policy"}
+  holdout_share: {value: 0.08, grade: C, q: "49", note: "Q49: 5 to 10% of eligible borrowers, optional nudges only"}
+  holdout_salt: {value: "vynqe-bfsi-holdout-salt-v1", grade: C, q: "49", note: "Salted hash (brief rule 15)"}
+  hash_secret: {value: "dummy-bfsi-secret-not-real", grade: C, q: "-", note: "Dummy HMAC secret (brief rule 8)"}
+population:
+  growth_per_year: {value: 0.20, grade: C, q: "5", note: "Lender-specific; no public figure"}
+  acquisition_mix: {value: {paid_social: 0.22, paid_search: 0.15, partner: 0.12, organic: 0.13, whatsapp: 0.05, referral: 0.08, existing_base: 0.25}, grade: D, q: "4,5", note: "Q4: 20 to 30% existing-customer applicants; paid mix is lender data"}
+  device_mix: {value: {android: 0.70, ios: 0.10, web_mobile: 0.12, web_desktop: 0.08}, grade: D, q: "16", note: "Lender data"}
+  tier_mix: {value: [0.17, 0.22, 0.27, 0.20, 0.14], grade: B, q: "3", note: "metro, tier1, tier2, tier3, rural. Semi-urban and rural about 61% of originations (CIBIL via FPJ)"}
+  salaried_share: {value: 0.62, grade: B, q: "3", note: "Borrower survey, not a portfolio"}
+  under30_share: {value: 0.60, grade: B, q: "3", note: "Over 60% of fintech borrowers under 30 (TransUnion CIBIL)"}
+  income_monthly_median: {value: {salaried: 30000, self_employed: 34000}, grade: D, q: "3", note: "INR; lender data"}
+  income_sigma: {value: {salaried: 0.55, self_employed: 0.80}, grade: C, q: "18", note: "Wide overlap so types are not trivially separable"}
+  tier_income_mult: {value: [1.35, 1.15, 1.0, 0.85, 0.70], grade: C, q: "3", note: ""}
+  amount_edges: {value: [0, 10000, 25000, 50000, 100000, 250000], grade: C, q: "1", note: "Band edges in INR (brief rule 7)"}
+  amount_clip: {value: [5000, 500000], grade: B, q: "1", note: "Digital NBFC average 18,802; traditional NBFC about 1 lakh; banks about 5 lakh"}
+  tenure_choices: {value: [6, 12, 18, 24, 36, 48, 60], grade: B, q: "1", note: "Mostly 12 to 60 months"}
+  tenure_band_edges: {value: [0, 12, 24, 36, 60], grade: C, q: "1", note: "Visible tenure band (workbook marks tenure Skip)"}
+  apr_by_band: {value: [0.16, 0.22, 0.28, 0.34], grade: B, q: "1", note: "Banks 10.5-24%, NBFCs 10.5-36%; by lender band 1..4"}
+  fee_pct_by_band: {value: [0.02, 0.03, 0.045, 0.06], grade: B, q: "1", note: "Fees 1-3% banks, 2-9% some NBFCs"}
+  existing_customer_start_boost: {value: 0.2, grade: C, q: "4", note: "Added to p(start application)"}
+  p_start_application: {value: {paid_social: 0.28, paid_search: 0.34, partner: 0.31, organic: 0.34, whatsapp: 0.34, referral: 0.40, existing_base: 0.45}, grade: C, q: "7,16", note: "Lead to disbursal 3-8% (Q7). Persons are leads the lender can see; upstream drop-offs are not in the data"}
+  anon_visitors_per_person: {value: 1.5, grade: C, q: "21", note: "Anonymous-only visitors (events only)"}
+  prior_sessions_mean: {value: 1.6, grade: C, q: "21", note: "Pre-application sessions before first identification"}
+  identify_link_prob: {value: 0.6, grade: C, q: "21", note: "Share of identify events that carry the merged anonymous id (phone OTP is deterministic, linking the anonymous id is not)"}
+  type_change_share: {value: 0.10, grade: C, q: "22", note: "Types are not static"}
+  type_change_to: {value: ["repeat_borrower", "one_time", "short_term_cash"], grade: C, q: "22", note: ""}
+  reacts_badly_share: {value: 0.04, grade: C, q: "50", note: "Complaint and do-not-disturb risk"}
+  fraud_share: {value: 0.008, grade: C, q: "30", note: "Identity fraud 0.5-1% (default range)"}
+  stacking_share: {value: 0.30, grade: B, q: "30", note: "About half of unsecured borrowers hold another live loan (RBI); we flag 30% as heavy stacking"}
+  types: {grade: B, q: "17,18,19,20", note: "Shares from Q17 (B/C/D). Loan-to-income ranges from Q18 (C). Uplifts are illustrative planted truths (grade C), not measurements",
+    value: {
+      short_term_cash:   {share: 0.35, lti: [0.02, 0.10], urgency: [5, 2], shop: [2, 6], kyc: [2, 6], topup: [2, 5], prepay: [2, 6], repeat_p: 0.10, calc_views: [1, 2],
+                          uplift: {nudge: 0.080, agent_call: 0.120, fee_waiver: 0.030, offer: 0.020, emi_nudge: 0.050}},
+      planned_big_ticket:{share: 0.20, lti: [0.20, 0.50], urgency: [2, 5], shop: [3, 4], kyc: [2, 6], topup: [2, 6], prepay: [3, 5], repeat_p: 0.10, calc_views: [2, 4],
+                          uplift: {nudge: 0.040, agent_call: 0.100, fee_waiver: 0.080, offer: 0.030, emi_nudge: 0.020}},
+      debt_consolidation:{share: 0.15, lti: [0.30, 0.60], urgency: [3, 4], shop: [4, 3], kyc: [2, 5], topup: [2, 6], prepay: [3, 4], repeat_p: 0.08, calc_views: [3, 6],
+                          uplift: {nudge: 0.040, agent_call: 0.090, fee_waiver: 0.060, offer: 0.040, emi_nudge: 0.030}},
+      rate_shopper:      {share: 0.10, lti: [0.08, 0.35], urgency: [2, 5], shop: [6, 2], kyc: [2, 6], topup: [2, 6], prepay: [4, 3], repeat_p: 0.10, calc_views: [3, 8],
+                          uplift: {nudge: 0.020, agent_call: 0.040, fee_waiver: 0.120, offer: 0.030, emi_nudge: 0.010}},
+      repeat_borrower:   {share: 0.15, lti: [0.05, 0.25], urgency: [3, 4], shop: [2, 6], kyc: [1, 8], topup: [6, 3], prepay: [2, 6], repeat_p: 0.55, calc_views: [1, 2],
+                          uplift: {nudge: 0.050, agent_call: 0.060, fee_waiver: 0.030, offer: 0.120, emi_nudge: 0.030}},
+      one_time:          {share: 0.05, lti: [0.05, 0.30], urgency: [3, 4], shop: [3, 4], kyc: [2, 6], topup: [1, 8], prepay: [3, 4], repeat_p: 0.02, calc_views: [1, 2],
+                          uplift: {nudge: 0.020, agent_call: 0.030, fee_waiver: 0.010, offer: 0.010, emi_nudge: 0.020}}}}
+  channel_type_factor: {value: {existing_base: {repeat_borrower: 3.0}, paid_social: {short_term_cash: 1.3}, paid_search: {rate_shopper: 2.0, planned_big_ticket: 1.3}, partner: {debt_consolidation: 1.5}}, grade: C, q: "17", note: ""}
+  consent_initial: {value: {email: {granted: 0.55, denied: 0.03}, sms: {granted: 0.50, denied: 0.05}, whatsapp: {granted: 0.55, denied: 0.03}}, grade: D, q: "47", note: "Rest = unknown. Unknown means hold. Set at lead capture / application"}
+  optin_at_application_prob: {value: 0.30, grade: C, q: "47", note: "Unknown channel opts in at application"}
+  do_not_market_share: {value: 0.02, grade: C, q: "47", note: "Core-banking do_not_market flag"}
+sessions:
+  mean_pages: {value: 4.0, grade: C, q: "20", note: "Pages per session"}
+  max_events: {value: 25, grade: C, q: "20", note: ""}
+  gap_median_sec: {value: 12, grade: C, q: "20", note: ""}
+  timeout_minutes: {value: 30, grade: A, q: "-", note: "GA4 default 30-minute inactivity (verified in e-commerce pack); our own tracker follows the same rule"}
+  hour_weights_ist: {value: [1.0,0.6,0.4,0.3,0.3,0.5,1.0,2.0,3.0,4.0,5.0,5.5,6.0,6.0,5.5,5.0,5.0,5.0,5.5,6.5,8.0,9.0,8.0,5.0], grade: C, q: "19", note: "Cash-need borrowers apply late evening (Q19)"}
+  login_prob: {value: 0.3, grade: C, q: "21", note: ""}
+  borrower_sessions_per_month: {value: 1.2, grade: C, q: "20", note: "Post-disbursal app visits"}
+calendar:
+  salary_day_mult: {value: 1.5, grade: C, q: "6", note: "Days 1-7 and last 2 days of month: 1.3 to 2x (default)"}
+  month_end_days: {value: 2, grade: C, q: "6", note: ""}
+  festive_mult: {value: 1.4, grade: C, q: "6", note: "Festive weeks (Oct-Nov) and March tax season"}
+  festive_windows: {value: [["2023-11-01", "2023-11-20"], ["2024-10-15", "2024-11-10"], ["2025-10-01", "2025-11-05"], ["2026-10-08", "2026-10-31"]], grade: C, q: "6", note: "Diwali dates unverified"}
+  tax_season: {value: [3, 3], grade: C, q: "6", note: "March"}
+funnel:
+  p_proceed_kyc: {value: 0.60, grade: C, q: "7,10", note: "KYC loses 40-60% (Q7); this and the pass rates below give about 50% from application started"}
+  kyc_first_pass: {value: 0.70, grade: B, q: "10", note: "Multiplied down by kyc_friction"}
+  kyc_retry_prob: {value: 0.75, grade: C, q: "10", note: ""}
+  kyc_retry_success: {value: 0.60, grade: C, q: "10", note: ""}
+  kyc_check_mix: {value: {ekyc_otp: 0.40, digilocker: 0.35, video_kyc: 0.08, manual_document: 0.17}, grade: C, q: "10", note: ""}
+  kyc_minutes: {value: {ekyc_otp: 4, digilocker: 3, video_kyc: 45, manual_document: 1440}, grade: C, q: "8", note: "Median minutes; sigma below"}
+  kyc_fail_reasons: {value: {document_quality: 0.40, mismatch: 0.30, timeout: 0.20, other: 0.10}, grade: C, q: "10", note: ""}
+  time_sigma: {value: 1.0, grade: C, q: "8", note: "Lognormal sigma for step times (P90 about 3.6x median)"}
+  p_consent: {value: 0.88, grade: B, q: "11", note: "AA consent 65-75% overall default; split into consent and fetch"}
+  p_fetch_ok: {value: 0.85, grade: B, q: "11", note: "Fetch success 75-85%"}
+  fetch_retry_prob: {value: 0.5, grade: C, q: "11", note: ""}
+  fetch_retry_success: {value: 0.6, grade: C, q: "11", note: ""}
+  aa_revoke_prob: {value: 0.02, grade: C, q: "11", note: "Withdrawn later"}
+  aa_fail_reasons: {value: {bank_timeout: 0.5, denied: 0.2, technical: 0.3}, grade: C, q: "11", note: "Our category names"}
+  decision_minutes_auto: {value: 20, grade: C, q: "8,12", note: "Median; auto decisions take seconds to hours"}
+  manual_review_days: {value: [1, 3], grade: C, q: "12", note: ""}
+  approve_by_band: {value: [0.80, 0.50, 0.30, 0.15], grade: C, q: "24", note: "Q24 low 80 / medium 50 / high 15; band 3 interpolated"}
+  refer_share: {value: 0.08, grade: C, q: "12", note: "Manual review 5-10%"}
+  refer_approve: {value: 0.45, grade: C, q: "12", note: ""}
+  reject_reasons: {value: {policy: 0.35, income: 0.30, kyc: 0.10, fraud: 0.05, other: 0.20}, grade: C, q: "24", note: "Categories only, no bureau detail"}
+  accept_base: {value: 0.70, grade: C, q: "13", note: "60-75%; falls when sanctioned below request or APR high"}
+  accept_ratio_slope: {value: 0.5, grade: C, q: "13", note: "Subtract slope x (1 - sanctioned/requested)"}
+  accept_apr_slope: {value: 1.0, grade: C, q: "13", note: "Subtract slope x max(0, apr - 0.28)"}
+  accept_shop_slope: {value: 0.25, grade: C, q: "13", note: "Rate shoppers decline more (shopping_around)"}
+  accept_hours: {value: 6, grade: C, q: "8", note: "Median hours to accept"}
+  esign_success: {value: 0.93, grade: B, q: "14", note: "E-sign about 90%"}
+  mandate_first_success: {value: 0.88, grade: B, q: "14", note: "Mandate 85-92% first try (vendor claim, not independent)"}
+  mandate_retry_prob: {value: 0.70, grade: C, q: "14", note: ""}
+  mandate_retry_success: {value: 0.75, grade: C, q: "14", note: ""}
+  mandate_fail_proceed: {value: 0.40, grade: C, q: "14", note: "Share who still disburse with manual repayment after final mandate failure"}
+  mandate_cancel_6m: {value: 0.03, grade: C, q: "32", note: "Cancel within 6 months 2-5%"}
+  mandate_error_mix: {value: {rejected_by_bank: 0.4, technical: 0.3, limit_too_low: 0.2, other: 0.1}, grade: C, q: "32", note: "Razorpay docs list no failure-reason values; names are ours"}
+  p_disburse: {value: 0.93, grade: C, q: "15", note: "Approved but never disbursed 5-15%"}
+  disburse_hours: {value: 18, grade: B, q: "15", note: "Median hours; industry average 7-10 days; digital aims minutes to a day"}
+  disburse_sigma: {value: 1.4, grade: C, q: "8", note: "P90 about 6x median"}
+  abandon_return_7d: {value: 0.15, grade: C, q: "9", note: "10-20% of abandoners return within 7 days"}
+  abandon_return_mean_days: {value: 2.0, grade: C, q: "9", note: ""}
+  duplicate_application: {value: 0.04, grade: C, q: "51", note: "3-8% duplicate applications (rate shoppers resubmit)"}
+  kyc_wait_days: {value: 2, grade: C, q: "10", note: "KYC pending beyond this = KYC drop-off"}
+  stall_days: {value: 14, grade: C, q: "9", note: "No activity for this long = application stalled"}
+risk:
+  band_shares: {value: [0.30, 0.40, 0.20, 0.10], grade: C, q: "23", note: "Applicants by lender band 1..4"}
+  band_noise_sd: {value: 0.7, grade: C, q: "23,55", note: "Lender band is a noisy function of true risk (Q55: not near perfect)"}
+  z_coefs: {value: {small_amount: 0.25, under30: 0.25, tier: 0.12, self_employed: 0.25, existing: -0.35, stacking: 0.30, lti: 0.8, fraud: 1.2, noise_sd: 0.8}, grade: C, q: "29", note: "Correlated drivers of true risk (small tickets, young, small towns, self-employed higher; existing customers lower)"}
+  z_norm: {value: [0.17, 0.90], grade: C, q: "23", note: "Mean and sd of the raw risk score, calibrated from a 30,000-person run"}
+  band_cuts: {value: [-0.64, 0.63, 1.53], grade: C, q: "23", note: "Cut points on the lender score (true risk plus noise) giving shares 30/40/20/10 across all people; calibrated from a 30,000-person run"}
+repayment:
+  rho: {value: 0.60, grade: C, q: "22,31", note: "Persistence of monthly repayment stress"}
+  risk_weight: {value: 0.55, grade: C, q: "29,31", note: "Weight of true risk in monthly stress"}
+  state_cuts: {value: [0.85, 0.93, 0.98], grade: C, q: "31", note: "Baseline shares: on time 85%, grace 8%, late 5%, missed 2% (Q31 for mandate borrowers)"}
+  stress_offset: {value: 0.1, grade: C, q: "31", note: "Added to monthly latent stress so that the disbursed book (tilted to lower-risk bands) still shows the Q31 state shares"}
+  month_drift: {value: 0.02, grade: C, q: "31", note: "Worse in later months"}
+  grace_days: {value: [1, 5], grade: C, q: "31", note: ""}
+  late_days: {value: [6, 29], grade: C, q: "31", note: ""}
+  missed_cure: {value: {d30_59: 0.35, d60_89: 0.30}, grade: C, q: "27,28", note: "Share of missed instalments cured in each window; the rest reach 90+ days (default)"}
+  fail_error_mix: {value: {insufficient_funds: 0.72, technical: 0.15, bank_decline: 0.08, mandate_inactive: 0.05}, grade: B, q: "33", note: "Split technical codes from insufficient funds"}
+  autopay_methods: {value: {upi_autopay: 0.65, emandate: 0.35}, grade: C, q: "32", note: ""}
+  manual_methods: {value: {manual_upi: 0.70, netbanking: 0.30}, grade: C, q: "31", note: ""}
+  default_flag_delay_days: {value: [1, 5], grade: C, q: "52", note: "Core-banking extract is daily; lender flags default a few days after 90 DPD"}
+  prepay_share: {value: 0.15, grade: C, q: "34", note: "10-20% prepay before term"}
+  cooling_off_share: {value: 0.012, grade: A, q: "34", note: "RBI Digital Lending Directions para 10: exit within a cooling-off period of at least 1 day without penalty; share is ours"}
+  part_pay_share: {value: 0.04, grade: C, q: "35", note: "3-5% part-payments: NOT modelled in v0.1 (gap); restructuring under 1% also not modelled"}
+  complaint_share: {value: 0.02, grade: C, q: "39", note: "1-3% raise a complaint"}
+  complaint_late_mult: {value: 3.0, grade: C, q: "39", note: ""}
+  complaint_days: {value: [3, 20], grade: C, q: "39", note: ""}
+  collections_first_contact_days: {value: [1, 3], grade: C, q: "38", note: ""}
+  topup_after_ontime: {value: 6, grade: C, q: "41", note: "Top-up eligible after 6 on-time EMIs"}
+  topup_hazard_month: {value: 0.04, grade: C, q: "41", note: "Natural monthly top-up application probability x topup_propensity x 2"}
+  winback_return: {value: {m6: 0.10, m12: 0.18, m24: 0.25}, grade: C, q: "44", note: "Closed customers returning (cumulative)"}
+  dormant_after_days: {value: 90, grade: C, q: "44", note: "Closed with no activity for this long = Dormant"}
+  preapproved_hold_share: {value: 0.40, grade: C, q: "42", note: "30-50% of good-standing customers hold a pre-approved offer"}
+messaging:
+  window_hours_ist: {value: [10, 19], grade: C, q: "40", note: "Promotional window; TRAI rules NOT verified"}
+  channel_pref: {value: {whatsapp: 0.45, sms: 0.30, email: 0.25}, grade: C, q: "45", note: ""}
+  channel_stats: {grade: B, q: "45", note: "Email open 25.8%, click 8.2%, unsubscribe 0.09% (GetResponse via CampaignHQ); WhatsApp read about 68%",
+    value: {email: {deliver: 0.97, open: 0.258, click_given_open: 0.32, unsub: 0.0009},
+            whatsapp: {deliver: 0.94, open: 0.68, click_given_open: 0.25, skip_delivered_when_read: 0.10, unsub: 0.0},
+            sms: {deliver: 0.95, open: 0.0, click_given_open: 0.0, unsub: 0.0}}}
+  legacy_p: {value: {a0: -1.4, a_band: -0.45, a_value: 0.25}, grade: C, q: "46", note: "Biased targeting: lower-risk and higher-value borrowers receive more nudges and offers"}
+  legacy_action_mix: {value: {nudge: 0.50, offer: 0.25, fee_waiver: 0.10, emi_nudge: 0.15}, grade: C, q: "46", note: ""}
+  policy_do_nothing: {value: 0.25, grade: C, q: "49", note: "Regime-2 exploration policy: do_nothing share; rest uniform over allowed actions; propensity logged"}
+  action_cost: {value: {nudge: 1, agent_call: 60, fee_waiver: 400, offer: 2, emi_nudge: 1, do_nothing: 0}, grade: C, q: "37", note: "INR"}
+  freq_cap_7d: {value: 2, grade: C, q: "45", note: "Marketing frequency cap per rolling 7 days (max 4 a month, Q45)"}
+  rep_engaged_days: {value: 7, grade: C, q: "-", note: "No other marketing within 7 days of an agent-call task"}
+  fee_waiver_approval_amount: {value: 100000, grade: C, q: "-", note: "Fee waivers on loans at or above this need approval (task)"}
+  suitability_band_max: {value: 4, grade: C, q: "-", note: "Offers are not sent to band 4 or to anyone late in the last 90 days"}
+  capacity_floor: {value: 0.35, grade: C, q: "-", note: "Stateless proxy for agent-call capacity: availability falls through the month to this floor"}
+  task_status_mix: {value: {done: 0.55, ignored: 0.25, open: 0.05, overridden: 0.15}, grade: D, q: "-", note: ""}
+  call_disposition_mix: {value: {connected: 0.45, not_reachable: 0.30, callback_requested: 0.10, not_interested: 0.10, application_completed: 0.05}, grade: C, q: "37", note: ""}
+  fatigue_k: {value: 0.5, grade: C, q: "50", note: "uplift x 1/(1+k*max(0,msgs14d-1))"}
+  unsub_fatigue: {value: 0.004, grade: C, q: "50", note: ""}
+  unsub_reacts_badly: {value: 0.15, grade: C, q: "50", note: ""}
+  response_mean_days: {value: 1.5, grade: C, q: "45", note: "Exponential delay of an incremental response"}
+  stall_decision_days: {value: [1, 4, 10], grade: C, q: "9", note: "Decision points after a stall"}
+  lead_decision_days: {value: [1, 5], grade: C, q: "9", note: "Decision points for a lead who has not applied"}
+  emi_nudge_days_before: {value: 4, grade: C, q: "36", note: "Optional nudge point before the due date; mandatory reminders are separate and never held out"}
+  emi_nudge_shift: {value: 0.7, grade: C, q: "36", note: "Latent-stress reduction (sd units) when an emi_nudge works, scaled by planted uplift / 0.05"}
+noise:
+  duplicate: {value: 0.02, grade: C, q: "51", note: "Generic duplicate events (application duplicates are separate, see funnel.duplicate_application)"}
+  missing_field: {value: 0.01, grade: C, q: "51", note: "1-3% missing fields"}
+  wrong_timestamp: {value: 0.005, grade: C, q: "51", note: ""}
+  late: {value: 0.02, grade: C, q: "52", note: ""}
+  out_of_order: {value: 0.02, grade: C, q: "52", note: "1-3% out of order"}
+  ga4_late_days: {value: 2.9, grade: C, q: "52", note: "Used as the late-arrival cap for all sources (naming kept from the shared core)"}
+  slow_sources: {value: {razorpay: [1.0, 2.0], core_banking: [0.2, 1.0]}, grade: B, q: "52", note: "Mandate debit results T+1 to T+2; core banking daily extract"}
+  bot_share_of_anon_sessions: {value: 0.03, grade: C, q: "51", note: ""}
+  shared_phone: {value: 0.015, grade: C, q: "51", note: ""}
+  tracking_gaps: {value: {per_year: 2, days: 1.5}, grade: C, q: "53", note: "Browsing events dropped"}
+campaigns:
+  ad_campaigns: {value: {paid_social: 4, paid_search: 4, partner: 2}, grade: D, q: "5", note: ""}
+  cpc_inr: {value: 14, grade: C, q: "5", note: ""}
+  ctr: {value: 0.015, grade: C, q: "5", note: ""}
+states:
+  application_stall_days: {value: 14, grade: C, q: "9", note: "Application started with no activity for this long falls back to Lead"}
+  kyc_wait_days: {value: 2, grade: C, q: "10", note: ""}
+  first_cycle_days: {value: 35, grade: C, q: "-", note: "Activated until the first EMI cycle begins (days after disbursal)"}
+  dormant_days: {value: 90, grade: C, q: "44", note: ""}
+  rule_version: {value: "bfsi_rules_v0.1", grade: C, q: "-", note: "All states marked Added in the brief are proposals"}
+labels:
+  horizons_days: {value: [7, 30], grade: C, q: "11", note: "Funnel and nudge outcomes"}
+  default_window_months: {value: 12, grade: A, q: "25", note: "Default label: 90+ days past due within 12 months on book"}
+  min_loan_age_months: {value: 15, grade: A, q: "25,28", note: "Label only loans 15+ months old"}
+  final_buffer_days: {value: 45, grade: C, q: "54", note: "Same finality buffer as e-commerce for funnel labels"}

@@ -1,0 +1,80 @@
+{
+ "table": "campaigns",
+ "hidden": false,
+ "description": "campaign_map and ad_spend_daily merged (row_type).",
+ "columns": [
+  {
+   "name": "row_type",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "map",
+    "ad_daily"
+   ],
+   "description": ""
+  },
+  {
+   "name": "campaign_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "system",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "system_campaign_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "name_hash",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "channel",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "date",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "cost",
+   "type": "float",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "clicks",
+   "type": "int",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "impressions",
+   "type": "int",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  }
+ ]
+}

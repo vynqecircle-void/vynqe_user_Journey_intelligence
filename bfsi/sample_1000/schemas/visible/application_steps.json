@@ -1,0 +1,124 @@
+{
+ "table": "application_steps",
+ "hidden": false,
+ "description": "One row per KYC attempt, Account Aggregator consent, data fetch, e-sign envelope or mandate set-up. AA consent is NOT marketing consent.",
+ "columns": [
+  {
+   "name": "step_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "application_ref",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "unit_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "step_type",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "kyc",
+    "aa_consent",
+    "aa_fetch",
+    "esign",
+    "mandate"
+   ],
+   "description": ""
+  },
+  {
+   "name": "external_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": "verification_id, consent_id, session_id, envelope_id or token_id"
+  },
+  {
+   "name": "method",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "ekyc_otp",
+    "digilocker",
+    "video_kyc",
+    "manual_document",
+    "account_aggregator",
+    "docusign",
+    "upi_autopay",
+    "emandate"
+   ],
+   "description": ""
+  },
+  {
+   "name": "status",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "pending",
+    "verified",
+    "failed",
+    "expired",
+    "active",
+    "rejected",
+    "paused",
+    "revoked",
+    "completed",
+    "created",
+    "sent",
+    "delivered",
+    "signed",
+    "declined",
+    "voided",
+    "cancelling",
+    "cancelled"
+   ],
+   "description": "Final status at extract time"
+  },
+  {
+   "name": "attempt_no",
+   "type": "int",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "started_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "completed_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "reason_category",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": "KYC: document_quality, mismatch, timeout, other. AA: bank_timeout, denied, technical. Mandate: our own categories"
+  },
+  {
+   "name": "amount_band",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": "Mandate max amount band"
+  }
+ ]
+}

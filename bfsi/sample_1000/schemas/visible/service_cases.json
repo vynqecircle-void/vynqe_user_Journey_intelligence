@@ -1,0 +1,66 @@
+{
+ "table": "service_cases",
+ "hidden": false,
+ "description": "One row per dispute, complaint or collections case. Suppression flag only: no money detail, no days past due.",
+ "columns": [
+  {
+   "name": "case_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "unit_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "status",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "open",
+    "in_progress",
+    "resolved",
+    "closed"
+   ],
+   "description": ""
+  },
+  {
+   "name": "category",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "dispute",
+    "complaint",
+    "collections",
+    "grievance"
+   ],
+   "description": ""
+  },
+  {
+   "name": "opened_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "closed_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "suppress_marketing",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  }
+ ]
+}

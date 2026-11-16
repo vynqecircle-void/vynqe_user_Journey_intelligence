@@ -1,0 +1,282 @@
+{
+ "table": "orders",
+ "hidden": false,
+ "description": "Orders with shipment and refund merged in (one shipment and at most one refund per order).",
+ "columns": [
+  {
+   "name": "order_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "unit_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "checkout_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "created_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "processed_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "financial_status",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "placed",
+    "paid",
+    "partially_refunded",
+    "refunded",
+    "cancelled"
+   ],
+   "description": "Snapshot at extract time"
+  },
+  {
+   "name": "fulfilment_status",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "unfulfilled",
+    "partial",
+    "fulfilled",
+    "returned_to_stock"
+   ],
+   "description": ""
+  },
+  {
+   "name": "amount_band",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "item_count",
+   "type": "int",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "payment_mode",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "prepaid",
+    "cod"
+   ],
+   "description": ""
+  },
+  {
+   "name": "discount_code",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "discount_band",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "0-10%",
+    "10-20%",
+    "20%+"
+   ],
+   "description": "Flagged extension"
+  },
+  {
+   "name": "order_source",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "web",
+    "app",
+    "pos"
+   ],
+   "description": ""
+  },
+  {
+   "name": "channel",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "web",
+    "app",
+    "email",
+    "sms",
+    "whatsapp",
+    "push",
+    "in_app",
+    "call",
+    "store",
+    "kiosk",
+    "paid_search",
+    "paid_social",
+    "affiliate",
+    "partner",
+    "referral",
+    "organic",
+    "branch"
+   ],
+   "description": ""
+  },
+  {
+   "name": "campaign_id",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "decision_id",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": "Set only when the customer clicked the message (observable attribution)"
+  },
+  {
+   "name": "category_primary",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "apparel_women",
+    "apparel_men",
+    "footwear",
+    "accessories",
+    "beauty",
+    "home",
+    "electronics_acc"
+   ],
+   "description": "Flagged extension: needed for margin and stock guardrails"
+  },
+  {
+   "name": "cancelled_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "paid_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "courier",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "delivery_status",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "delivered",
+    "failed_delivery",
+    "rto"
+   ],
+   "description": ""
+  },
+  {
+   "name": "delivery_status_changed_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "delivered_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "attempt_count",
+   "type": "int",
+   "nullable": true,
+   "allowed": null,
+   "description": "Flagged extension"
+  },
+  {
+   "name": "rto_flag",
+   "type": "bool",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "rto_reason_category",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "not_home",
+    "refused",
+    "address",
+    "other"
+   ],
+   "description": ""
+  },
+  {
+   "name": "refund_created_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "refund_amount_band",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "refund_status",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "refunded"
+   ],
+   "description": ""
+  },
+  {
+   "name": "refund_reason_category",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "size_fit",
+    "quality",
+    "changed_mind",
+    "damaged",
+    "wrong_item"
+   ],
+   "description": "Flagged extension: not pulled by workbook"
+  }
+ ]
+}

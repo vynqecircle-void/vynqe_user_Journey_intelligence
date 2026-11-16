@@ -1,0 +1,150 @@
+{
+ "table": "events",
+ "hidden": false,
+ "description": "Canonical event stream. Web, forms, consent, messages, CRM, e-sign, tickets, CTAs, health bands, registrations, billing and outcomes.",
+ "columns": [
+  {
+   "name": "event_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "source_event_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": "object:id:status (brief rule 4)"
+  },
+  {
+   "name": "event_type",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "identify",
+    "consent_change",
+    "link_click",
+    "page_view",
+    "decision_made",
+    "message_status",
+    "record_created",
+    "record_status_changed",
+    "outcome_confirmed"
+   ],
+   "description": ""
+  },
+  {
+   "name": "source_system",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "ga4",
+    "hubspot",
+    "salesforce",
+    "stripe",
+    "zendesk",
+    "gainsight",
+    "docusign",
+    "cvent",
+    "amplitude",
+    "okta",
+    "klaviyo",
+    "decision_service",
+    "outcome_checker",
+    "google_ads",
+    "meta_ads"
+   ],
+   "description": ""
+  },
+  {
+   "name": "person_key",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "anonymous_id",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "unit_id",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": "account_id"
+  },
+  {
+   "name": "occurred_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "ingested_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "channel",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "web",
+    "email",
+    "call",
+    "meeting",
+    "in_app",
+    "paid_search",
+    "paid_social",
+    "partner",
+    "event",
+    "referral",
+    "organic",
+    "direct",
+    "webinar"
+   ],
+   "description": ""
+  },
+  {
+   "name": "campaign_id",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "placement_id",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "consent_status",
+   "type": "string",
+   "nullable": true,
+   "allowed": [
+    "granted",
+    "denied",
+    "unknown",
+    "withdrawn"
+   ],
+   "description": ""
+  },
+  {
+   "name": "properties",
+   "type": "json",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  }
+ ]
+}

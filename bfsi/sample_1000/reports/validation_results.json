@@ -1,0 +1,1086 @@
+[
+ {
+  "group": "schema",
+  "check": "borrowers: columns match contract",
+  "observed": 26,
+  "expected": 26,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "borrowers: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "borrowers: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "events: columns match contract",
+  "observed": 14,
+  "expected": 14,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "events: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "events: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "applications: columns match contract",
+  "observed": 19,
+  "expected": 19,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "applications: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "applications: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "application_steps: columns match contract",
+  "observed": 12,
+  "expected": 12,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "application_steps: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "application_steps: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "loans: columns match contract",
+  "observed": 11,
+  "expected": 11,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "loans: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "loans: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "emi_payments: columns match contract",
+  "observed": 11,
+  "expected": 11,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "emi_payments: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "emi_payments: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "service_cases: columns match contract",
+  "observed": 7,
+  "expected": 7,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "service_cases: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "service_cases: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "actions: columns match contract",
+  "observed": 35,
+  "expected": 35,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "actions: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "actions: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "state_history: columns match contract",
+  "observed": 7,
+  "expected": 7,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "state_history: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "state_history: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "campaigns: columns match contract",
+  "observed": 10,
+  "expected": 10,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "campaigns: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "campaigns: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "person_truth: columns match contract",
+  "observed": 27,
+  "expected": 27,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "person_truth: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "person_truth: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "application_truth: columns match contract",
+  "observed": 18,
+  "expected": 18,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "application_truth: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "application_truth: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "state_truth: columns match contract",
+  "observed": 4,
+  "expected": 4,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "state_truth: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "state_truth: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "noise_log: columns match contract",
+  "observed": 3,
+  "expected": 3,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "noise_log: no nulls in non-nullable columns",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "noise_log: allowed values respected",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "schema",
+  "check": "visible tables count (brief: 7 to 10)",
+  "observed": 10,
+  "expected": "7-10",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "applications.unit_id in borrowers",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "events.unit_id in borrowers",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "steps and loans reference existing applications",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "emi_payments.loan_id in loans",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "actions/cases/state_history unit_id in borrowers",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "person_truth 1:1 with borrowers",
+  "observed": 1000,
+  "expected": 1000,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "application_truth 1:1 with applications",
+  "observed": 507,
+  "expected": 507,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "unique keys (applications, loans, actions, payments, steps)",
+  "observed": false,
+  "expected": false,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "state_history stays do not overlap",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "disbursal_date after created_at",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "every loan has a disbursed application with the same date",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "every disbursed application has exactly one loan",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "no EMI attempts after the lender default flag",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "no timestamps beyond the extract end (visible tables)",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "integrity",
+  "check": "EMI attempts are ordered in time within an instalment",
+  "observed": true,
+  "expected": true,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "privacy",
+  "check": "no raw phone/email in event properties",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "privacy",
+  "check": "no raw-PII, income, DPD or exact-amount column names in visible tables",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "privacy",
+  "check": "visible amounts are bands only",
+  "observed": [
+   "0-10k",
+   "100k-250k",
+   "10k-25k",
+   "250k+",
+   "25k-50k",
+   "50k-100k"
+  ],
+  "expected": "bands",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "privacy",
+  "check": "no exact amounts in event properties",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "leakage",
+  "check": "no hidden-table column names in visible tables",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "leakage",
+  "check": "state engine and core modules import no hidden tables or schemas",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "leakage",
+  "check": "trap exists: loans.lender_band_latest differs from the band at decision for some loans",
+  "observed": 0.141,
+  "expected": "> 0 (extract-time snapshot)",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "leakage",
+  "check": "trap: lender_band_latest is band_4 for every defaulted loan (future leaks into a snapshot column)",
+  "observed": 1.0,
+  "expected": 1.0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "leakage",
+  "check": "trap: defaulted_at is only populated for defaulted loans",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "existing-customer share of people (Q4: 20-30%)",
+  "observed": 0.244,
+  "expected": "0.20-0.30",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "lead to disbursal, new applications (Q7: 3-8%)",
+  "observed": 0.062,
+  "expected": "0.03-0.08",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "application to disbursal, new applications (Q7: about 12%)",
+  "observed": 0.127,
+  "expected": "0.09-0.16",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "KYC first-attempt pass (Q10: 70%)",
+  "observed": 0.678,
+  "expected": "0.62-0.78",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "KYC eventual pass among applicants who start KYC",
+  "observed": 0.871,
+  "expected": "0.75-0.92 (final fail about 10-15%)",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "AA consent given (Q11: 65-75% default; config 88% before drop-off)",
+  "observed": 0.852,
+  "expected": "0.65-0.92",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "AA data fetch first-try success (Q11: 75-85%)",
+  "observed": 0.889,
+  "expected": "0.75-0.90",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "decision mix approve / refer / decline (Q12: 40-60 / 5-10 / 30-50)",
+  "observed": {
+   "decline": 0.488,
+   "approve": 0.421,
+   "refer": 0.091
+  },
+  "expected": "see Q12",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "lender band shares among decided applicants (Q23: 30/40/20/10)",
+  "observed": [
+   0.318,
+   0.401,
+   0.157,
+   0.124
+  ],
+  "expected": [
+   0.3,
+   0.4,
+   0.2,
+   0.1
+  ],
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "offer acceptance, sanctioned to e-sign started (Q13: 60-75%)",
+  "observed": 0.661,
+  "expected": "0.55-0.80",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "e-sign success (Q14: about 90%)",
+  "observed": 0.885,
+  "expected": "0.88-0.97",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "mandate first-try success (Q14/Q32: 85-92%)",
+  "observed": 0.818,
+  "expected": "0.82-0.93",
+  "pass": false,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "signed but never disbursed (Q15: 5-15%; includes failed mandates and drop-off)",
+  "observed": 0.165,
+  "expected": "0.04-0.20",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "90+ DPD within 12 months, loans 15+ months old (Q26 digital placeholder 1-6%)",
+  "observed": 0.0645,
+  "expected": "0.02-0.09",
+  "pass": true,
+  "note": "n=31 final loans"
+ },
+ {
+  "group": "distribution",
+  "check": "default by lender band vs Q26 placeholders (1-2 / 4-6 / 10-15 / high)",
+  "observed": {
+   "band_1": 0.1,
+   "band_2": 0.0,
+   "band_3": 0.0,
+   "band_4": 0.0
+  },
+  "expected": "bands ordered, within loose ranges",
+  "pass": false,
+  "note": "Band 4 rests on few loans; read with the counts: {\"band_1\": 20, \"band_2\": 8, \"band_3\": 2, \"band_4\": 1}"
+ },
+ {
+  "group": "distribution",
+  "check": "EMI states on time / grace / late / missed (Q31: 80-85 / 8-10 / 5-8 / 1-3)",
+  "observed": {
+   "on_time": 0.824,
+   "grace": 0.077,
+   "late": 0.052,
+   "missed": 0.048
+  },
+  "expected": "Q31",
+  "pass": false,
+  "note": "Missed share runs a little above Q31 because stress persists; flagged"
+ },
+ {
+  "group": "distribution",
+  "check": "EMI first-attempt bounce (Q33: 5-12%; Q31 implies about 15%)",
+  "observed": 0.157,
+  "expected": "0.05-0.20",
+  "pass": true,
+  "note": "Q31 and Q33 disagree; the pack sits between them. Reported, not hidden"
+ },
+ {
+  "group": "distribution",
+  "check": "prepaid share of closed loans (Q34: 10-20% prepay before term)",
+  "observed": 0.286,
+  "expected": "0.05-0.35",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "loans with a mandate cancellation event (Q32: 2-5% cancel within 6 months, config 3%)",
+  "observed": 0.014,
+  "expected": "0.01-0.06",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "people with a complaint or dispute (Q39: 1-3% of borrowers; here per person, so lower)",
+  "observed": 0.006,
+  "expected": "0.0003-0.03",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "first missed instalment of defaulters falls in months 3-9 (Q28: defaults peak in months 3-9)",
+  "observed": 0.667,
+  "expected": ">= 0.5",
+  "pass": true,
+  "note": "Hazard is flat plus a small drift; a peak is not planted. Reported as is"
+ },
+ {
+  "group": "distribution",
+  "check": "events per person",
+  "observed": 47.8,
+  "expected": "20-120",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "distribution",
+  "check": "email consent granted share (config 55%, minus withdrawals, plus opt-ins)",
+  "observed": 0.588,
+  "expected": "0.40-0.65",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "noise",
+  "check": "duplicate rate vs config",
+  "observed": 0.0171,
+  "expected": 0.02,
+  "pass": true,
+  "note": "event-level; application duplicates also appear under 'duplicate'"
+ },
+ {
+  "group": "noise",
+  "check": "late rate vs config",
+  "observed": 0.0165,
+  "expected": 0.02,
+  "pass": true,
+  "note": "event-level; application duplicates also appear under 'duplicate'"
+ },
+ {
+  "group": "noise",
+  "check": "missing_field rate vs config",
+  "observed": 0.008,
+  "expected": 0.01,
+  "pass": true,
+  "note": "event-level; application duplicates also appear under 'duplicate'"
+ },
+ {
+  "group": "noise",
+  "check": "wrong_timestamp rate vs config",
+  "observed": 0.0043,
+  "expected": 0.005,
+  "pass": true,
+  "note": "event-level; application duplicates also appear under 'duplicate'"
+ },
+ {
+  "group": "noise",
+  "check": "bot, tracking-gap and shared-device defects present",
+  "observed": [
+   6891,
+   157,
+   16
+  ],
+  "expected": ">0",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "noise",
+  "check": "shared-phone defects logged equal the people who share a phone",
+  "observed": [
+   16,
+   16
+  ],
+  "expected": "equal",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "noise",
+  "check": "razorpay median lag in days (Q52: T+1 to T+2)",
+  "observed": 1.53,
+  "expected": "1.0-2.5",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "noise",
+  "check": "core banking median lag in hours (daily extract)",
+  "observed": 19.8,
+  "expected": "6-30",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "noise",
+  "check": "origination median lag in seconds (real time)",
+  "observed": 32.5,
+  "expected": "< 120",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "noise",
+  "check": "duplicate applications logged (Q51: 3-8%; ours is of new applications)",
+  "observed": 0.035,
+  "expected": "0.015-0.08",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "guardrails",
+  "check": "every reason code appears at least once",
+  "observed": [
+   "mandate_inactive"
+  ],
+  "expected": [],
+  "pass": false,
+  "note": "Missing codes mean the rule never fired in this sample"
+ },
+ {
+  "group": "guardrails",
+  "check": "no executed action was also blocked (except approval -> task)",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "guardrails",
+  "check": "holdout-control people never receive an optional action",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "guardrails",
+  "check": "holdout share",
+  "observed": 0.07,
+  "expected": 0.08,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "guardrails",
+  "check": "regulatory messages (EMI reminders, KFS) reach holdout people at the normal rate",
+  "observed": 0.047,
+  "expected": "~0.070",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "guardrails",
+  "check": "policy never chooses a regulatory or transactional message",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "guardrails",
+  "check": "propensity logged for every randomised decision, in (0,1]",
+  "observed": 0.0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "guardrails",
+  "check": "promotional sends with no granted marketing consent at send time",
+  "observed": 0,
+  "expected": "~0",
+  "pass": true,
+  "note": "Late and duplicate events can add a few"
+ },
+ {
+  "group": "guardrails",
+  "check": "promotional sends while a collections or dispute case is open",
+  "observed": 4,
+  "expected": "~0",
+  "pass": false,
+  "note": "Cases that open between a decision and its send time can leak a few"
+ },
+ {
+  "group": "guardrails",
+  "check": "AA consent alone never enables marketing (aa_consent_only blocks occur and none executed)",
+  "observed": [
+   10,
+   0
+  ],
+  "expected": ">0 and 0",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "recoverability",
+  "check": "hidden borrower type predicted from visible behaviour (3-fold accuracy)",
+  "observed": 0.524,
+  "expected": "> majority 0.389 and < 0.95",
+  "pass": true,
+  "note": "Types are learnable but never trivially"
+ },
+ {
+  "group": "recoverability",
+  "check": "lender band correlates with true risk but is not near perfect (Q55)",
+  "observed": 0.756,
+  "expected": "0.45-0.90",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "uplift",
+  "check": "randomised estimate per action vs planted mean (estimate, std err, planted mean, n treated, n do_nothing)",
+  "observed": {
+   "nudge": [
+    -0.019,
+    0.032,
+    0.057,
+    173,
+    109
+   ],
+   "agent_call": [
+    0.066,
+    0.048,
+    0.093,
+    99,
+    82
+   ],
+   "fee_waiver": null,
+   "offer": null
+  },
+  "expected": "same sign as planted; within 2.5 std errors + 0.03 of planted x about 0.6 (people returning anyway dilute it)",
+  "pass": true,
+  "note": "Planted effect is per type and step-scaled, so the comparison is approximate"
+ },
+ {
+  "group": "uplift",
+  "check": "every incremental application with a cause points to a real action that was not do_nothing",
+  "observed": [
+   44,
+   36,
+   0
+  ],
+  "expected": "counts; none do_nothing",
+  "pass": true,
+  "note": "0.182 of incremental rows have no cause: those come from the legacy regime, where sends carry no decision id"
+ },
+ {
+  "group": "uplift",
+  "check": "legacy period targets lower-risk applicants more than their share (biased targeting)",
+  "observed": [
+   0.917,
+   0.719
+  ],
+  "expected": "legacy > all",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "uplift",
+  "check": "planted uplift differs by hidden type (fee waiver highest for rate_shopper, offer for repeat_borrower)",
+  "observed": {
+   "uplift_nudge": {
+    "debt_consolidation": 0.038,
+    "one_time": 0.019,
+    "planned_big_ticket": 0.039,
+    "rate_shopper": 0.018,
+    "repeat_borrower": 0.052,
+    "short_term_cash": 0.08
+   },
+   "uplift_agent_call": {
+    "debt_consolidation": 0.09,
+    "one_time": 0.028,
+    "planned_big_ticket": 0.101,
+    "rate_shopper": 0.041,
+    "repeat_borrower": 0.057,
+    "short_term_cash": 0.121
+   },
+   "uplift_fee_waiver": {
+    "debt_consolidation": 0.06,
+    "one_time": 0.01,
+    "planned_big_ticket": 0.077,
+    "rate_shopper": 0.124,
+    "repeat_borrower": 0.029,
+    "short_term_cash": 0.028
+   },
+   "uplift_offer": {
+    "debt_consolidation": 0.036,
+    "one_time": 0.01,
+    "planned_big_ticket": 0.03,
+    "rate_shopper": 0.029,
+    "repeat_borrower": 0.122,
+    "short_term_cash": 0.018
+   }
+  },
+  "expected": "rate_shopper / repeat_borrower",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "uplift",
+  "check": "sleeping dogs exist (negative planted uplift)",
+  "observed": 0.041,
+  "expected": 0.04,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "labels",
+  "check": "default label is final only for loans 15+ months old",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "labels",
+  "check": "some loans are not yet final (the window end leaves them open)",
+  "observed": 0.5633802816901409,
+  "expected": "> 0",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "labels",
+  "check": "no default flag in the visible loans table before 90 days past due",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "labels",
+  "check": "visible default flag comes 1-5 days after the hidden 90 DPD date",
+  "observed": 0,
+  "expected": 0,
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "state",
+  "check": "visible-event state pairs found in truth (noise and identity splits cost some)",
+  "observed": 0.998,
+  "expected": "0.8-1.0",
+  "pass": true,
+  "note": ""
+ },
+ {
+  "group": "state",
+  "check": "all 13 states present",
+  "observed": [],
+  "expected": [],
+  "pass": true,
+  "note": ""
+ }
+]

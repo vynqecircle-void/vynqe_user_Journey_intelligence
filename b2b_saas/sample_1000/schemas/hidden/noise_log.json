@@ -1,0 +1,41 @@
+{
+ "table": "noise_log",
+ "hidden": true,
+ "description": "HIDDEN. Every injected defect.",
+ "columns": [
+  {
+   "name": "event_id",
+   "type": "string",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "defect",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "duplicate",
+    "missing_field",
+    "wrong_timestamp",
+    "late",
+    "out_of_order",
+    "bot",
+    "tracking_gap",
+    "duplicate_account",
+    "unmatched_user",
+    "wrongly_matched",
+    "test_account",
+    "multi_account_user"
+   ],
+   "description": ""
+  },
+  {
+   "name": "detail",
+   "type": "json",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  }
+ ]
+}

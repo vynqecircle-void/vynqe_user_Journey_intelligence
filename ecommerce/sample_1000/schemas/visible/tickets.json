@@ -1,0 +1,112 @@
+{
+ "table": "tickets",
+ "hidden": false,
+ "description": "Support tickets (Zendesk shape).",
+ "columns": [
+  {
+   "name": "ticket_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "unit_id",
+   "type": "string",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "created_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "updated_at",
+   "type": "timestamp",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "status",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "new",
+    "open",
+    "pending",
+    "solved",
+    "closed"
+   ],
+   "description": ""
+  },
+  {
+   "name": "priority",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "low",
+    "normal",
+    "high",
+    "urgent"
+   ],
+   "description": ""
+  },
+  {
+   "name": "ticket_type",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "question",
+    "incident",
+    "problem",
+    "task"
+   ],
+   "description": ""
+  },
+  {
+   "name": "channel",
+   "type": "string",
+   "nullable": false,
+   "allowed": [
+    "email",
+    "web",
+    "whatsapp",
+    "call"
+   ],
+   "description": ""
+  },
+  {
+   "name": "tags",
+   "type": "json",
+   "nullable": false,
+   "allowed": null,
+   "description": "Includes topic: delivery, product, payment, refund"
+  },
+  {
+   "name": "solved_at",
+   "type": "timestamp",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "reopens",
+   "type": "int",
+   "nullable": false,
+   "allowed": null,
+   "description": ""
+  },
+  {
+   "name": "csat",
+   "type": "int",
+   "nullable": true,
+   "allowed": null,
+   "description": ""
+  }
+ ]
+}

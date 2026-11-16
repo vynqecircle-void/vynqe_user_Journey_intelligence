@@ -1,0 +1,10 @@
+[project]
+name = "vynqe-synth"
+version = "0.1.0"
+description = "Synthetic data generator for Vynqe lifecycle packs (SYNTHETIC DATA ONLY)"
+requires-python = ">=3.11"
+dependencies = ["numpy", "pandas", "pyarrow", "pyyaml", "pydantic", "pytest"]
+[tool.setuptools.packages.find]
+include = ["vynqe_synth*"]
+[tool.setuptools.package-data]
+vynqe_synth = ["config/*.yaml", "schemas/*.json"]

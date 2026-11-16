@@ -1,0 +1,143 @@
+# E-commerce pack settings. SYNTHETIC DATA. Every leaf carries: value, grade, q (answer-file question), note.
+# Grades: A official, B benchmark (vendor/agency, low confidence), C modelling assumption, D client-only (placeholder).
+run:
+  start_date: {value: "2024-11-01", grade: C, q: "55", note: "24-month window ending 31 Oct 2026"}
+  n_days: {value: 730, grade: C, q: "1", note: "Answers: 12 to 24 months"}
+  regime2_day: {value: 365, grade: C, q: "44", note: "Regime 1 = months 1-12 (legacy targeting); regime 2 = months 13-24 (randomised holdout)"}
+  holdout_share: {value: 0.08, grade: C, q: "44", note: "PDF F3: 5 to 10% of customers"}
+  holdout_salt: {value: "vynqe-holdout-salt-v1", grade: C, q: "44", note: "Salted hash assignment (brief rule 15)"}
+  hash_secret: {value: "dummy-per-client-secret-not-real", grade: C, q: "-", note: "Dummy HMAC secret (brief rule 8)"}
+population:
+  growth_per_year: {value: 0.23, grade: B, q: "52", note: "Online retail growth 22-24% (Redseer via People Matters)"}
+  acquisition_mix: {value: {paid_social: 0.33, paid_search: 0.15, organic: 0.27, affiliate: 0.06, referral: 0.09, whatsapp: 0.10}, grade: D, q: "5", note: "Client-specific"}
+  channel_type_factor: {value: {paid_social: {deal_seeker: 1.5, window_shopper: 1.3}, affiliate: {deal_seeker: 2.0, one_time_buyer: 1.2}, referral: {loyal_buyer: 1.6, gift_buyer: 1.3}, organic: {loyal_buyer: 1.2}}, grade: C, q: "5", note: "Heavy first-order discount channels repeat less (TopGrowth, vendor)"}
+  types: {grade: C, q: "6,7,3", note: "Shares from RFM clustering in real data; one_time_buyer must be largest. gap in days; ps = beta(a,b) price sensitivity; tail = mean active days after last order; sessions_pm = mean sessions per month; uplift = true 7-day extra conversion probability per action (PDF illustrative +6 pts free shipping, +3 pts 10% discount)",
+    value: {
+      loyal_buyer:         {share: 0.10, p_buy: 0.95, gap_mean: 28,  gap_cv: 0.6, lapse_q: 0.04, sessions_pm: 5.0, tail: 200, ps: [2, 5], uplift: {reminder: 0.03, discount: 0.02, free_shipping: 0.05, bundle: 0.04, agent_call: 0.02}},
+      deal_seeker:         {share: 0.15, p_buy: 0.85, gap_mean: 55,  gap_cv: 0.8, lapse_q: 0.10, sessions_pm: 4.0, tail: 120, ps: [6, 2], uplift: {reminder: 0.03, discount: 0.08, free_shipping: 0.06, bundle: 0.03, agent_call: 0.02}},
+      window_shopper:      {share: 0.20, p_buy: 0.35, gap_mean: 110, gap_cv: 1.0, lapse_q: 0.25, sessions_pm: 3.0, tail: 60,  ps: [4, 3], uplift: {reminder: 0.02, discount: 0.06, free_shipping: 0.05, bundle: 0.025, agent_call: 0.03}},
+      gift_buyer:          {share: 0.07, p_buy: 0.80, gap_mean: 140, gap_cv: 0.9, lapse_q: 0.22, sessions_pm: 1.8, tail: 90,  ps: [3, 3], uplift: {reminder: 0.015, discount: 0.03, free_shipping: 0.04, bundle: 0.03, agent_call: 0.03}},
+      festival_only_buyer: {share: 0.08, p_buy: 0.80, gap_mean: 300, gap_cv: 0.5, lapse_q: 0.0,  sessions_pm: 1.5, tail: 60,  ps: [5, 3], uplift: {reminder: 0.004, discount: 0.03, free_shipping: 0.02, bundle: 0.015, agent_call: 0.01}},
+      one_time_buyer:      {share: 0.40, p_buy: 0.90, gap_mean: 200, gap_cv: 1.0, lapse_q: 0.97, sessions_pm: 2.0, tail: 30,  ps: [3, 3], uplift: {reminder: 0.01, discount: 0.02, free_shipping: 0.03, bundle: 0.01, agent_call: 0.02}}}}
+  type_change_share: {value: 0.06, grade: C, q: "8", note: "Share of customers whose hidden type changes once (monthly switch 5-10% sensitivity to test later)"}
+  tier_mix: {value: [0.22, 0.20, 0.25, 0.20, 0.13], grade: D, q: "35", note: "metro, tier1, tier2, tier3, rural"}
+  device_mix: {value: {android: 0.72, ios: 0.07, web_mobile: 0.13, web_desktop: 0.08}, grade: B, q: "23", note: "Android ~92% of India mobile web page views (StatCounter); buyer share unknown"}
+  serial_returner_share: {value: 0.055, grade: C, q: "32", note: "Default 3 to 8%"}
+  reacts_badly_share: {value: 0.04, grade: C, q: "46", note: "No India fatigue curve found"}
+  anon_visitors_per_customer: {value: 2.0, grade: C, q: "21", note: "Anonymous-only visitors (never identify)"}
+  prior_sessions_mean: {value: 1.5, grade: C, q: "21", note: "Anonymous sessions before first identification"}
+  identify_link_prob: {value: 0.35, grade: C, q: "21", note: "Default: 60 to 80% of pre-login events stay anonymous"}
+  categories: {grade: C, q: "25,29", note: "Margins, return and RTO factors are client finance data (D); defaults only. price = relative item price",
+    value: {
+      apparel_women:   {weight: 0.30, price: 1.0, margin: 0.45, ret: 1.6, rto: 1.1},
+      apparel_men:     {weight: 0.20, price: 1.0, margin: 0.42, ret: 1.5, rto: 1.1},
+      footwear:        {weight: 0.14, price: 1.4, margin: 0.38, ret: 1.4, rto: 1.1},
+      accessories:     {weight: 0.12, price: 0.7, margin: 0.50, ret: 0.6, rto: 0.8},
+      beauty:          {weight: 0.10, price: 0.6, margin: 0.55, ret: 0.4, rto: 0.8},
+      home:            {weight: 0.06, price: 1.3, margin: 0.30, ret: 0.7, rto: 0.9},
+      electronics_acc: {weight: 0.08, price: 0.5, margin: 0.12, ret: 0.5, rto: 0.8}}}
+consent:
+  initial: {value: {email: {granted: 0.60, denied: 0.03}, sms: {granted: 0.40, denied: 0.05}, whatsapp: {granted: 0.55, denied: 0.02}}, grade: D, q: "47", note: "Rest = unknown. Unknown means hold"}
+  optin_at_order_prob: {value: 0.25, grade: C, q: "47", note: "Checkout opt-in for an unknown channel"}
+sessions:
+  mean_pages: {value: 4.4, grade: B, q: "16,18", note: "Mobile e-commerce pages/session ~4.4 (Opensend, Q4 2022, global, weak)"}
+  max_events: {value: 30, grade: C, q: "16", note: ""}
+  gap_median_sec: {value: 10, grade: C, q: "19", note: "Heavy-tailed, median 5 to 15 s"}
+  timeout_minutes: {value: 30, grade: A, q: "20", note: "GA4 default, verified (Google support)"}
+  hour_weights_ist: {value: [1.0,0.6,0.4,0.3,0.3,0.5,1.0,2.0,3.0,4.0,5.0,5.5,6.0,6.0,5.5,5.0,5.0,5.0,5.5,6.5,8.0,9.0,8.0,5.0], grade: C, q: "14", note: "Two daily peaks: midday and 8-11 PM"}
+  login_prob: {value: 0.3, grade: C, q: "21", note: "Share of identified sessions that carry a login event"}
+orders:
+  p_cod_base: {value: 0.57, grade: C, q: "28", note: "Sources conflict: 50-70% D2C, 25-30% all e-commerce; default 55-60% D2C"}
+  cod_tier_shift: {value: [-0.12, -0.04, 0.04, 0.10, 0.12], grade: C, q: "28", note: "Higher COD in tier 2/3"}
+  items_extra_mean: {value: 0.8, grade: C, q: "24", note: "Items = 1 + Poisson(0.8); answers: 1.5 to 2.5 fashion"}
+  item_price_median: {value: 650, grade: C, q: "4", note: "INR; lognormal"}
+  item_price_sigma: {value: 0.5, grade: C, q: "4", note: ""}
+  amount_edges: {value: [0, 500, 1000, 1500, 2500, 5000], grade: C, q: "4", note: "Band edges in INR (brief rule 7)"}
+  abandon_rate: {value: 0.70, grade: B, q: "18", note: "Cart abandonment 70.19% across 49 studies (Baymard)"}
+  nonbuyer_carts: {value: 0.5, grade: C, q: "18", note: "Mean abandoned carts for customers who never order"}
+  first_order_lag_median_days: {value: 4.0, grade: C, q: "1", note: ""}
+  salary_day_mult: {value: 1.15, grade: C, q: "13", note: "Days 1-7 of month; no public figure"}
+  discount_sale_prob_factor: {value: 0.6, grade: C, q: "26", note: "P(discount code) on sale days = ps * factor"}
+  cancel_before_ship: {value: 0.04, grade: C, q: "36", note: "Placeholder 2 to 6%"}
+payments:
+  method_mix: {value: {upi: 0.60, card: 0.20, netbanking: 0.08, wallet: 0.12}, grade: C, q: "34", note: ""}
+  success: {value: {upi: 0.965, card: 0.87, netbanking: 0.90, wallet: 0.93}, grade: B, q: "34", note: "UPI technical decline 0.8% vs business declines; cards 85-88% (PhonePe); blended 92-94%"}
+  evening_drop: {value: 0.08, grade: B, q: "14", note: "Payment success drops 8-12 points at 7-10 PM (Razorpay)"}
+  retry_prob: {value: 0.30, grade: B, q: "34", note: "~70% quit after one failure (vendor claim); retries recover 15-20%"}
+  error_codes: {value: [bank_decline, insufficient_funds, upi_timeout, card_declined, otp_failed, technical], grade: C, q: "34", note: "Names are ours"}
+delivery:
+  transit_median_days: {value: [2.0, 3.0, 4.5, 5.0, 6.0], grade: B, q: "38", note: "1-3 days metro, 3-7 business days tier 2/3 (Shipmozo)"}
+  first_attempt_success: {value: [0.75, 0.70, 0.62, 0.52, 0.48], grade: B, q: "38", note: "72-78% metro, 45-58% tier 3 (base.blog)"}
+  rto_cod_by_tier: {value: [0.15, 0.19, 0.24, 0.29, 0.32], grade: C, q: "35", note: "Vendor-blog ranges were metros 18-24, tier1 24-30, tier2 30-38, tier3/rural 38-50. Scaled by ~0.7 because category and serial-RTO multipliers push the blended COD RTO to ~36%, above the 20-30% overall range in the answers. Our own calibration."}
+  rto_prepaid: {value: 0.025, grade: B, q: "29", note: "Prepaid RTO 2-3%; one source says 20-30%, treated as outlier"}
+  serial_rto_factor: {value: 3.0, grade: C, q: "32", note: ""}
+  rto_reason_mix: {value: {refused: 0.33, not_home: 0.30, address: 0.22, other: 0.15}, grade: B, q: "31", note: "Changed mind ~30%, customer unavailable ~25% (eGrow)"}
+  cod_remit_days: {value: [2, 8], grade: C, q: "28", note: "COD marked paid after delivery"}
+  return_prepaid: {value: 0.10, grade: B, q: "29", note: "COD returns run 1.8-2.3x prepaid"}
+  return_cod_factor: {value: 2.0, grade: B, q: "29", note: ""}
+  serial_return_factor: {value: 3.5, grade: C, q: "32", note: ""}
+  return_median_days: {value: 6.0, grade: C, q: "30", note: "Return window 7-15 days"}
+  partial_refund_share: {value: 0.25, grade: C, q: "29", note: ""}
+  finality_days: {value: 45, grade: C, q: "30", note: "Orders older than this are final for labels"}
+tickets:
+  p_issue: {value: {general: 0.03, failed_delivery: 0.30, refund: 0.18, rto: 0.10, payment: 0.15}, grade: D, q: "39", note: "No India benchmark"}
+  solve_median_days: {value: 1.5, grade: C, q: "41", note: ""}
+  closed_after_solved_days: {value: 4, grade: A, q: "41", note: "Zendesk default auto-close 4 days after Solved (verified)"}
+  reopen_prob: {value: 0.05, grade: C, q: "41", note: ""}
+  csat_response: {value: 0.30, grade: C, q: "41", note: ""}
+messaging:
+  window_hours_ist: {value: [10, 21], grade: C, q: "46", note: "Promotional send window; vendor claim, TRAI rule NOT verified"}
+  channel_pref: {value: {whatsapp: 0.5, email: 0.4, sms: 0.1}, grade: C, q: "42", note: ""}
+  channel_stats: {grade: B, q: "42", note: "Email open 25.8%, click 8.2%, unsub 0.09% (GetResponse via CampaignHQ); WhatsApp read ~68% measured, click 15-25%; delivered-webhook can be skipped when read immediately (Meta docs)",
+    value: {email: {deliver: 0.97, bounce: 0.02, open: 0.258, click_given_open: 0.32, unsub: 0.0009},
+            whatsapp: {deliver: 0.94, open: 0.68, click_given_open: 0.25, skip_delivered_when_read: 0.10, unsub: 0.0},
+            sms: {deliver: 0.95, open: 0.0, click_given_open: 0.0, unsub: 0.0}}}
+  legacy_p: {value: {a0: -2.1, a_p7: 6.0, a_orders: 0.35, cart_flow_p: 0.60}, grade: C, q: "43", note: "Biased targeting: send probability rises with purchase propensity and past orders"}
+  legacy_action_mix: {value: {reminder: 0.35, discount: 0.30, free_shipping: 0.10, bundle: 0.25}, grade: C, q: "43", note: ""}
+  policy_do_nothing: {value: 0.25, grade: C, q: "44", note: "Regime-2 exploration policy: do_nothing share; rest uniform over allowed actions; propensity logged"}
+  action_cost: {value: {reminder: 1, discount: 100, free_shipping: 60, bundle: 40, agent_call: 40, do_nothing: 0}, grade: C, q: "37", note: "INR; discount shown as 10% of a 1,000 basket"}
+  discount_pct: {value: 10, grade: C, q: "48", note: ""}
+  freq_cap_7d: {value: 2, grade: C, q: "46", note: "Max marketing messages per rolling 7 days"}
+  margin_floor: {value: 0.08, grade: C, q: "25", note: "Minimum margin after offer"}
+  offer_abuse_returns_180d: {value: 2, grade: C, q: "32", note: ""}
+  cod_limit_rto_count: {value: 2, grade: C, q: "29", note: ""}
+  approval_basket_band_edge: {value: 2500, grade: C, q: "48", note: "Discounts on baskets at or above this need approval"}
+  discount_budget_floor: {value: 0.30, grade: C, q: "48", note: "Stateless proxy: availability falls through the month to this floor"}
+  task_status_mix: {value: {done: 0.55, ignored: 0.30, open: 0.05, overridden: 0.10}, grade: D, q: "-", note: "Handoffs depend on client team"}
+  fatigue_k: {value: 0.5, grade: C, q: "46", note: "uplift x 1/(1+k*max(0,msgs14d-1))"}
+  unsub_fatigue: {value: 0.004, grade: C, q: "46", note: "Added unsubscribe prob per message over 2 in 14 days"}
+  unsub_reacts_badly: {value: 0.15, grade: C, q: "46", note: ""}
+  response_mean_days: {value: 1.3, grade: C, q: "45", note: "Exponential response delay (half-life about 0.9 day)"}
+  pull_forward_days: {value: [5, 20], grade: C, q: "48", note: "Discount orders defer the next natural order"}
+  agent_call_min_spend: {value: 5000, grade: C, q: "-", note: "PDF F7: handoff for high-value customers"}
+noise:
+  duplicate: {value: 0.02, grade: C, q: "49", note: "Default 1-3%"}
+  missing_field: {value: 0.01, grade: C, q: "49", note: "Default 0.5-2%"}
+  wrong_timestamp: {value: 0.005, grade: C, q: "49", note: ""}
+  late: {value: 0.02, grade: C, q: "22", note: "Late share 1-3%"}
+  out_of_order: {value: 0.015, grade: C, q: "22", note: ""}
+  ga4_late_days: {value: 2.9, grade: A, q: "22", note: "GA4 daily tables update up to 2 calendar days plus today (verified, Google)"}
+  bot_share_of_anon_sessions: {value: 0.03, grade: C, q: "50", note: "Global 53% automated traffic is vendor telemetry; filtered shop far lower"}
+  shared_phone: {value: 0.015, grade: C, q: "50", note: "No public figure"}
+  tracking_gaps: {value: {per_year: 2, days: 1.5}, grade: C, q: "52", note: "Browsing events dropped"}
+campaigns:
+  ad_campaigns: {value: {paid_social: 4, paid_search: 4, affiliate: 1}, grade: D, q: "5", note: "Count per channel"}
+  cpa_inr: {value: {paid_social: 450, paid_search: 380, affiliate: 220}, grade: C, q: "5", note: ""}
+  cpc_inr: {value: 18, grade: C, q: "5", note: ""}
+  ctr: {value: 0.012, grade: C, q: "5", note: ""}
+calendar:
+  seasons: {grade: C, q: "13,55", note: "Festive-sale dates for 2024/2025 are assumptions; 8-9 Oct 2026 from answers (secondary source); Diwali 1 Nov 2024, 20/21 Oct 2025, 8 Nov 2026 unverified",
+    value: [{start: "2024-11-01", end: "2024-11-06", mult: 1.8},
+            {start: "2025-09-23", end: "2025-10-24", mult: 1.8, sale_start: "2025-09-23", sale_end: "2025-09-24", sale_mult: 3.5},
+            {start: "2026-10-08", end: "2026-10-31", mult: 1.8, sale_start: "2026-10-08", sale_end: "2026-10-09", sale_mult: 3.5}]}
+states:
+  new_customer_window_days: {value: 45, grade: C, q: "-", note: "PDF: thresholds are starting points"}
+  reengage_factor: {value: 1.5, grade: C, q: "-", note: "Gap longer than 1.5 x usual gap"}
+  default_usual_gap_days: {value: 30, grade: C, q: "-", note: ""}
+  reactivate_days: {value: 90, grade: C, q: "10", note: "No order or visit for 90 days; stays Reactivate beyond 180 (flagged gap)"}
+  retarget_cooling_days: {value: 30, grade: C, q: "-", note: ""}
+  retarget_sessions: {value: 3, grade: C, q: "-", note: "Sessions without an order that count as 'viewed a product'"}
+  rule_version: {value: "ecom_rules_v0.1", grade: C, q: "-", note: ""}
+labels:
+  horizons_days: {value: [7, 30], grade: C, q: "11", note: ""}
+  final_buffer_days: {value: 45, grade: C, q: "30", note: "Q53 (own answer): see docs/q53_leakage.md"}
